@@ -470,8 +470,7 @@ footer a:hover { color: var(--gold-primary); text-decoration: underline; }
   }
   footer p { display: block !important; }
   .section-title { font-size: 1.9rem; margin-bottom: 35px; }
-<<<<<<< HEAD
-}/* ==========================================================================
+}/* ========================================================================== 
    LIGHT MODE STYLING (الوضع الفاتح - النهار)
    ========================================================================== */
 html.light-mode {
@@ -648,6 +647,4 @@ html.light-mode .file-card-gold {
 
 .cookie-btn-decline:hover {
   background: var(--bg-secondary, #f1f5f9);
-=======
->>>>>>> 8bc493b87752f65e08e4d3250f11afdf319ea29a
 }

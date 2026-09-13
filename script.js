@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 /* ==========================================================================
    Tarek.Dev - MAIN LOGIC & INTERACTIVE ENGINE (script.js - Complete Version)
    ========================================================================== */
@@ -511,7 +510,7 @@ function declineCookies() {
   if (cookieModal) {
     cookieModal.classList.remove("active");
   }
-=======
+}
 /* ==========================================================================
    Tarek.Dev - MAIN LOGIC & INTERACTIVE ENGINE (script.js - Complete Version)
    ========================================================================== */
@@ -812,5 +811,4 @@ function changeLanguage(lang) {
     document.documentElement.setAttribute("dir", "ltr");
     document.documentElement.setAttribute("lang", lang);
   }
->>>>>>> 8bc493b87752f65e08e4d3250f11afdf319ea29a
 }
