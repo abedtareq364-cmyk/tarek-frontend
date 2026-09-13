@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <!-- الرئيسية والصفحات التعريفية -->
@@ -73,4 +74,81 @@
     <lastmod>2026-09-06</lastmod>
     <priority>0.80</priority>
   </url>
+=======
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- الرئيسية والصفحات التعريفية -->
+  <url>
+    <loc>https://tarekkorshed.com/</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>1.00</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/about.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/privacy.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.50</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/terms.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- مقالات المدونة الـ 10 -->
+  <url>
+    <loc>https://tarekkorshed.com/blog/css-responsive.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/page-speed-seo.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/security-basics.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/javascript-performance.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/clean-code-js.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/web-accessibility.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/git-github-guide.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/css-grid-flexbox.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/web-hosting-deployment.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+  <url>
+    <loc>https://tarekkorshed.com/blog/web-security-best-practices.html</loc>
+    <lastmod>2026-09-06</lastmod>
+    <priority>0.80</priority>
+  </url>
+>>>>>>> 8bc493b87752f65e08e4d3250f11afdf319ea29a
 </urlset>
