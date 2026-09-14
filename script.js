@@ -820,7 +820,7 @@ function sendWhatsAppQuote() {
     const totalCost = document.getElementById('calc_total_cost') ? document.getElementById('calc_total_cost').innerText : '';
 
     // حط رقم الواتساب بتاعك هنا (مثلاً كود الدولة ورقمك بدون علامة +)
-    const phoneNumber = "+33749408535";
+    const phoneNumber = "33749408535";
 
     // تجهيز نص الرسالة الاحترافية
     const message = `مرحباً طارق، أود طلب معاينة أو عرض سعر بناءً على الحساب التالي:\n\n` +
