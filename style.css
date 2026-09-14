@@ -647,4 +647,8 @@ html.light-mode .file-card-gold {
 
 .cookie-btn-decline:hover {
   background: var(--bg-secondary, #f1f5f9);
+} #sendWhatsAppBtn {
+  display: flex !important;
+  visibility: visible !important;
+  opacity: 1 !important;
 }
