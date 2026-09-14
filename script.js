@@ -812,3 +812,25 @@ function changeLanguage(lang) {
     document.documentElement.setAttribute("lang", lang);
   }
 }
+
+function sendWhatsAppQuote() {
+    // استخراج بيانات الحاسبة الحالية
+    const siteType = document.getElementById('calc_site_type') ? document.getElementById('calc_site_type').value : 'تشطيبات عامة';
+    const surfaceArea = document.getElementById('calc_surface_area') ? document.getElementById('calc_surface_area').value : 'غير محدد';
+    const totalCost = document.getElementById('calc_total_cost') ? document.getElementById('calc_total_cost').innerText : '';
+
+    // حط رقم الواتساب بتاعك هنا (مثلاً كود الدولة ورقمك بدون علامة +)
+    const phoneNumber = "33749408535";
+
+    // تجهيز نص الرسالة الاحترافية
+    const message = `مرحباً طارق، أود طلب معاينة أو عرض سعر بناءً على الحساب التالي:\n\n` +
+                    `- نوع الخدمة: ${siteType}\n` +
+                    `- المساحة: ${surfaceArea} م²\n` +
+                    `- التكلفة التقريبية: ${totalCost}\n\n` +
+                    `أرجو التواصل لتأكيد التفاصيل. شكراً لك!`;
+
+    const encodedMessage = encodeURIComponent(message);
+
+    // فتح رابط الواتساب مباشرة
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+}
