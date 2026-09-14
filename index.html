@@ -523,20 +523,17 @@
         <div class="price-tag" id="totalPrice">150€</div>
         <a href="#contact" id="bookCalculatedService" class="btn btn-primary" style="margin-top: 15px; display: inline-flex; justify-content: center;" data-i18n="btn_book_calc">اطلب هذا العرض الآن 🚀</a>
         </button><!-- أزرار التفاعل لحاسبة الأسعار -->
-<div class="calculator-actions" style="margin-top: 15px; display: flex; gap: 10px; flex-wrap: wrap;">
-    <button id="exportPdfBtn" class="btn-primary" onclick="exportToPDF()">تحميل عرض السعر PDF 📄</button> <button onclick="sendWhatsAppQuote()" class="...">
-    اطلب هذا العرض الآن 🚀
-</button><!-- زرار تحميل الـ PDF (الموجود عندك أصلاً) -->
-<button id="downloadPdfBtn" class="btn-pdf">تحميل عرض السعر PDF 📄</button>
-
-<!-- زرار الواتساب الجديد جوه الحاسبة -->
-<button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background-color: #25D366; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 10px; display: flex; align-items: center; justify-content: center; gap: 8px; font-family: inherit;">
-    إرسال الطلب عبر الواتساب 💬
-</button>
-    <button id="sendWhatsAppBtn" class="btn-whatsapp" onclick="sendWhatsAppQuote()" style="background-color: #25D366; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-weight: bold;">إرسال الطلب عبر الواتساب 💬</button>
+<div class="calculator-actions" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
+    <!-- زرار تحميل عرض السعر PDF -->
+    <button id="exportPdfBtn" class="btn btn-primary" onclick="exportToPDF()">
+        تحميل عرض السعر PDF 📄
+    </button>
+    
+    <!-- زرار الواتساب الجديد جوه الحاسبة (مرة واحدة فقط) -->
+    <button id="sendWhatsAppBtn" class="btn-whatsapp" onclick="sendWhatsAppQuote()" style="background-color: #25D366; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        إرسال الطلب عبر الواتساب 💬
+    </button>
 </div>
-      </div>
-    </div>
   </section>
 
   <!-- Contact Section -->
