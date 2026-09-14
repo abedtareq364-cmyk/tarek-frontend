@@ -29,6 +29,12 @@
         "link-name": "off"
       }
     ],
-    "apple-touch-icons": "off"
+    "apple-touch-icons": "off",
+    "axe/parsing": [
+      "default",
+      {
+        "duplicate-id-active": "off"
+      }
+    ]
   }
 }
