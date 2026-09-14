@@ -523,17 +523,23 @@
         <div class="price-tag" id="totalPrice">150€</div>
         <a href="#contact" id="bookCalculatedService" class="btn btn-primary" style="margin-top: 15px; display: inline-flex; justify-content: center;" data-i18n="btn_book_calc">اطلب هذا العرض الآن 🚀</a>
         </button><!-- أزرار التفاعل لحاسبة الأسعار -->
-<div class="calculator-actions" style="margin-top: 15px; display: flex; flex-direction: column; gap: 10px;">
-    <!-- زرار تحميل عرض السعر PDF -->
-    <button id="exportPdfBtn" class="btn btn-primary" onclick="exportToPDF()">
-        تحميل عرض السعر PDF 📄
-    </button>
+<<div class="calculator-box" style="background-color: #0f172a; border: 1px solid rgba(37, 211, 102, 0.3); border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 500px; margin: 0 auto; color: #fff;">
+    <h3 style="color: #25D366; margin-bottom: 20px; text-align: center; font-family: inherit;">حاسبة التقدير الفوري</h3>
     
-    <!-- زرار الواتساب -->
-    <button id="sendWhatsAppBtn" class="btn-whatsapp" onclick="sendWhatsAppQuote()" style="background-color: #25D366 !important; color: white !important; border: none !important; padding: 12px 20px !important; border-radius: 8px !important; cursor: pointer !important; font-weight: bold !important; width: 100% !important; display: flex !important; align-items: center !important; justify-content: center !important; gap: 8px !important;">
-        إرسال الطلب عبر الواتساب 💬
-    </button>
-</div>
+    <!-- الأزرار والخيارات بتاعت الحاسبة -->
+    <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+        
+        <!-- زرار تحميل عرض السعر PDF -->
+        <button id="exportPdfBtn" onclick="exportToPDF()" style="background: #1e293b; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
+            تحميل عرض السعر PDF 📄
+        </button>
+        
+        <!-- زرار الواتساب بالستايل النيون الفخم -->
+        <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
+            إرسال الطلب عبر الواتساب 💬
+        </button>
+        
+    </div>
 </div>
   </section>
 

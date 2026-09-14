@@ -348,7 +348,7 @@ header {
 
 .contact-form input:focus, .contact-form textarea:focus, #promoEmail:focus {
   border-color: var(--gold-primary) !important;
-  box-shadow: 0 0 18px rgba(245, 158, 11, 0.3) !important;
+  box-shadow: 0 0 18px rgba(11, 245, 93, 0.3) !important;
 }
 
 .social-bar { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 35px; width: 100%; flex-wrap: wrap; }
@@ -651,4 +651,24 @@ html.light-mode .file-card-gold {
   display: flex !important;
   visibility: visible !important;
   opacity: 1 !important;
+}/* ضبط كل البوكسات والتاطيرات في الموقع كله لتكون مركزة ومريحة للعين زي لاندينج بايج المحترفين */
+.container, 
+section > div, 
+.card, 
+.box, 
+div[class*="box"], 
+div[class*="container"] {
+    max-width: 1000px !important;
+    width: 92% !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+/* ستايل الخلفية والحدود النيون الناعمة المريحة لكل البوكسات الداكنة */
+.card, .box, div[class*="box"] {
+    background-color: #0b0f19 !important;
+    border: 1px solid rgba(37, 211, 102, 0.15) !important;
+    border-radius: 16px !important;
+    padding: 20px !important;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5) !important;
 }
