@@ -107,13 +107,17 @@
           <i class="fa-solid fa-moon"></i>
         </button>
 
-        <select id="languageSelect" onchange="changeLanguage(this.value)" class="lang-select">
-          <option value="ar">العربية</option>
-          <option value="fr">Français</option>
-          <option value="en">English</option>
-          <option value="es">Español</option>
-          <option value="de">Deutsch</option>
-        </select>
+       <!-- شريط تبديل اللغات الذكي -->
+<div id="language-switcher" style="background: #0b0f19; padding: 10px 20px; display: flex; justify-content: flex-end; align-items: center; gap: 10px; border-bottom: 1px solid #1e293b; font-family: sans-serif;">
+    <span style="color: #94a3b8; font-size: 14px;">🌐 Language / Langue:</span>
+    <select id="langSelect" onchange="changeLanguage(this.value)" style="background: #1e293b; color: #fff; border: 1px solid #334155; padding: 6px 12px; border-radius: 6px; cursor: pointer; font-size: 14px;">
+        <option value="ar">العربية (الأساسية)</option>
+        <option value="fr" selected>Français (الرئيسية بفرنسا)</option>
+        <option value="en">English</option>
+        <option value="es">Español</option>
+        <option value="de">Deutsch</option>
+    </select>
+</div>
       </div>
     </div>
   </header>
@@ -531,8 +535,9 @@
       </div>
     </div>
   </section>
- <!-- قسم المتجر الرقمي والخدمات (Full Stack Digital Store Widget) -->
-<section id="digital-store" style="background: #0f172a; color: #fff; padding: 50px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 12px; margin: 30px 0;">
+
+  <!-- قسم المتجر الرقمي والخدمات (Full Stack Digital Store Widget) -->
+  <section id="digital-store" style="background: #0f172a; color: #fff; padding: 50px 20px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; border-radius: 12px; margin: 30px 0;">
     <div style="max-width: 1100px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 40px;">
             <h2 style="color: #38bdf8; font-size: 28px; margin-bottom: 10px;">المتجر الرقمي والخدمات البرمجية</h2>
@@ -546,76 +551,18 @@
             <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease;">
                 <div style="padding: 20px;">
                     <span style="background: #0284c7; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: bold;">برمجة وتطوير</span>
-                    <h3 style="color: #f8fafc; margin: 15px 0 10px 0; font-size: 20px;">قالب بورتفوليو احترافي Full Stack</h3>
-                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">قالب متجاوب بالكامل، سريع الأداء، ومجهز بأحدث معايير السيو (SEO) وقبول أدسنس.</p>
+                    <h3 style="color: #f8fafc; margin: 15px 0 10px 0; font-size: 20px;" data-i18n="item1Title">قالب بورتفوليو احترافي Full Stack</h3>
+                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;" data-i18n="item1Desc">قالب متجاوب بالكامل، سريع الأداء، ومجهز بأحدث معايير السيو (SEO) وقبول أدسنس.</p>
                 </div>
                 <div style="background: #0f172a; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155;">
-                    <span style="color: #38bdf8; font-size: 18px; font-weight: bold;">49 €</span>
-                    <button onclick="orderItem('قالب بورتفوليو احترافي')" style="background: #38bdf8; color: #0f172a; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">اطلب الآن</button>
-                </div>
-            </div>
-
-            <!-- منتج 2 -->
-            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease;">
-                <div style="padding: 20px;">
-                    <span style="background: #10b981; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: bold;">تشطيب وديكور</span>
-                    <h3 style="color: #f8fafc; margin: 15px 0 10px 0; font-size: 20px;">حاسبة تشطيبات البناء المتكاملة</h3>
-                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">أداة تفاعلية ذكية لحساب تكاليف الدهانات، الجبس بورد، والسيراميك بدقة عالية للعمل في فرنسا.</p>
-                </div>
-                <div style="background: #0f172a; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155;">
-                    <span style="color: #34d399; font-size: 18px; font-weight: bold;">مجاناً للموقع</span>
-                    <button onclick="orderItem('حاسبة تشطيبات البناء')" style="background: #34d399; color: #0f172a; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">تفاصيل</button>
-                </div>
-            </div>
-
-            <!-- منتج 3 -->
-            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; transition: transform 0.3s ease;">
-                <div style="padding: 20px;">
-                    <span style="background: #f59e0b; color: #fff; font-size: 12px; padding: 4px 10px; border-radius: 20px; font-weight: bold;">أنظمة ويب</span>
-                    <h3 style="color: #f8fafc; margin: 15px 0 10px 0; font-size: 20px;">سكريبت إدارة المهام والـ Full Stack</h3>
-                    <p style="color: #94a3b8; font-size: 14px; line-height: 1.6;">نظام متكامل لتنظيم المشاريع وإدارة قاعدة البيانات بأسلوب هيكلي متطور (MERN / Node.js).</p>
-                </div>
-                <div style="background: #0f172a; padding: 15px 20px; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #334155;">
-                    <span style="color: #fbbf24; font-size: 18px; font-weight: bold;">89 €</span>
-                    <button onclick="orderItem('سكريبت إدارة المهام')" style="background: #fbbf24; color: #0f172a; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;">اطلب الآن</button>
+                    <span style="color: #38bdf8; font-size: 18px; font-weight: bold;" data-i18n="priceTag">49 €</span>
+                    <button onclick="orderItem('قالب بورتفوليو احترافي')" style="background: #38bdf8; color: #0f172a; border: none; padding: 8px 16px; border-radius: 6px; font-weight: bold; cursor: pointer; transition: background 0.2s;" data-i18n="orderBtn">اطلب الآن</button>
                 </div>
             </div>
 
         </div>
     </div>
-</section>
-
-<!-- نافذة تنبيه تفاعلية بسيطة -->
-<script>
-function orderItem(itemName) {
-    alert(`شكراً لاهتمامك بـ "${itemName}". يمكنك التواصل مباشرة عبر نموذج الموقع أو البريد الإلكتروني لإتمام الطلب فوراً!`);
-}
-</script>
-  <!-- Contact Section -->
-  <section class="container" id="contact">
-    <h2 class="section-title" data-i18n="contact_title">تواصل <span>معي مباشرة</span></h2>
-    <div class="contact-container">
-      <form class="contact-form" action="https://formspree.io/f/xeeywrze" method="POST">
-        <input type="hidden" name="_next" value="https://tarekkorshed.com" />
-        <input type="text" name="name" id="formName" placeholder="اسمك الكريم..." required data-i18n-ph="ph_name" />
-        <input type="email" name="_replyto" id="formEmail" placeholder="بريدك الإلكتروني..." required data-i18n-ph="ph_email" />
-        <textarea name="message" id="formMessage" placeholder="رسالتك أو تفاصيل مشروعك..." rows="5" required data-i18n-ph="ph_msg"></textarea>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" data-i18n="btn_send">إرسال الرسالة 🚀</button>
-      </form>
-    </div>
   </section>
 
-  <!-- Footer -->
-  <footer style="text-align: center; padding: 30px; background: var(--bg-card); border-top: 1px solid var(--border-glass); margin-top: 50px; color: var(--text-muted);">
-    <p>جميع الحقوق محفوظة © 2026 للمهندس طارق خورشيد (Tarek Khorshed)</p>
-    <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
-      <a href="privacy.html" style="color: var(--gold-primary); text-decoration: none;">سياسة الخصوصية</a>
-      <a href="terms.html" style="color: var(--gold-primary); text-decoration: none;">الشروط والأحكام</a>
-      <a href="disclaimer.html" style="color: var(--gold-primary); text-decoration: none;">إخلاء المسؤولية</a>
-    </div>
-  </footer>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
   </body>
 </html>
