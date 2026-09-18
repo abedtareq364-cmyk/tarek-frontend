@@ -44,6 +44,7 @@
 </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <meta name="google-site-verification" content="cw7D4db1015xbVKuPHxSEg6A_-SsULK7OoPHG9YlqAM" />
+    <!-- كود إعلانات أدسنس الأساسي -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8236586351473750" crossorigin="anonymous"></script>
 
     <!-- Google Analytics (GA4) -->
@@ -238,13 +239,8 @@
   <!-- Testimonials & Interactive Review Section -->
   <section class="container" id="testimonials">
     <h2 class="section-title">آراء <span>وتقييمات العملاء الثقة</span></h2>
-    
-    <!-- شبكة عرض كافة التقييمات بشكل دائم تحت بعضها -->
-    <div id="testimonialsGrid" class="services-grid" style="margin-bottom: 40px;">
-      <!-- سيتم تعبئة جميع التعليقات هنا ديناميكياً عبر JavaScript -->
-    </div>
+    <div id="testimonialsGrid" class="services-grid" style="margin-bottom: 40px;"></div>
 
-    <!-- نموذج تفاعلي لإضافة تقييم جديد -->
     <div class="calculator-box" style="max-width: 700px; margin: 0 auto; text-align: right;">
       <h3 style="color: var(--gold-primary); margin-bottom: 20px; text-align: center;"><i class="fa-solid fa-star"></i> أضف تقييمك ورأيك في الخدمة</h3>
       <form id="reviewForm" onsubmit="submitUserReview(event)">
@@ -522,25 +518,18 @@
         <p data-i18n="calc_total_text">التكلفة التقديرية المبدئية:</p>
         <div class="price-tag" id="totalPrice">150€</div>
         <a href="#contact" id="bookCalculatedService" class="btn btn-primary" style="margin-top: 15px; display: inline-flex; justify-content: center;" data-i18n="btn_book_calc">اطلب هذا العرض الآن 🚀</a>
-        </button><!-- أزرار التفاعل لحاسبة الأسعار -->
-<<div class="calculator-box" style="background-color: #0f172a; border: 1px solid rgba(37, 211, 102, 0.3); border-radius: 16px; padding: 25px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); max-width: 500px; margin: 0 auto; color: #fff;">
-    <h3 style="color: #25D366; margin-bottom: 20px; text-align: center; font-family: inherit;">حاسبة التقدير الفوري</h3>
-    
-    <!-- الأزرار والخيارات بتاعت الحاسبة -->
-    <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
-        
-        <!-- زرار تحميل عرض السعر PDF -->
+      </div>
+
+      <!-- أزرار التفاعل لحاسبة الأسعار -->
+      <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
         <button id="exportPdfBtn" onclick="exportToPDF()" style="background: #1e293b; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px;">
             تحميل عرض السعر PDF 📄
         </button>
-        
-        <!-- زرار الواتساب بالستايل النيون الفخم -->
         <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);">
             إرسال الطلب عبر الواتساب 💬
         </button>
-        
+      </div>
     </div>
-</div>
   </section>
 
   <!-- Contact Section -->
@@ -550,116 +539,24 @@
       <form class="contact-form" action="https://formspree.io/f/xeeywrze" method="POST">
         <input type="hidden" name="_next" value="https://tarekkorshed.com" />
         <input type="text" name="name" id="formName" placeholder="اسمك الكريم..." required data-i18n-ph="ph_name" />
-        <input type="email" name="_replyto" id="formEmail" placeholder="بريدك الإلكتروني للتواصل..." required data-i18n-ph="ph_email" />
-        <textarea name="message" id="formMsg" placeholder="اكتب تفاصيل طلبك أو استفسارك هنا..." rows="5" required data-i18n-ph="ph_msg"></textarea>
-        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" data-i18n="btn_send">إرسال الرسالة الآن 🚀</button>
+        <input type="email" name="_replyto" id="formEmail" placeholder="بريدك الإلكتروني..." required data-i18n-ph="ph_email" />
+        <textarea name="message" id="formMessage" placeholder="رسالتك أو تفاصيل مشروعك..." rows="5" required data-i18n-ph="ph_msg"></textarea>
+        <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;" data-i18n="btn_send">إرسال الرسالة 🚀</button>
       </form>
-      <div class="social-bar">
-        <a href="mailto:abedtareq364@gmail.com" class="social-icon email" title="البريد الإلكتروني"><i class="fa-solid fa-envelope"></i></a>
-        <a href="https://www.instagram.com/tarikkhorshed" target="_blank" class="social-icon instagram" title="إنستجرام" rel="noopener"><i class="fa-brands fa-instagram"></i></a>
-        <a href="https://x.com/abed_tareq53947" target="_blank" class="social-icon twitter" title="منصة X" rel="noopener"><i class="fa-brands fa-x-twitter"></i></a>
-        <a href="https://www.facebook.com/share/1Be7MJr5rk/" target="_blank" class="social-icon facebook" title="فيسبوك" rel="noopener"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="https://www.malt.fr/profile/tareqabed" target="_blank" class="social-icon malt" title="Malt" rel="noopener"><i class="fa-solid fa-briefcase"></i></a>
-        <a href="https://fr.linkedin.com/in/tareq-abed-1570572a4" target="_blank" class="social-icon linkedin" title="LinkedIn" rel="noopener"><i class="fa-brands fa-linkedin-in"></i></a>
-      </div>
     </div>
   </section>
-
-  <!-- Interactive File Carousel -->
-  <section class="file-carousel-section">
-    <div class="file-carousel-header">
-      <h2><i class="fa-solid fa-folder-tree"></i> ملفات وشفرات المنصة</h2>
-      <p>استعرض أهم المكونات البرمجية والهيكلية التي تشكل منصة Tarek.Dev</p>
-    </div>
-    <div class="carousel-ticker-wrapper">
-      <div class="carousel-track">
-        <a href="index.html" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-html5"></i></div><div class="file-details"><span class="file-name">index.html</span><span class="file-type">الهيكل الرئيسي</span></div><span class="file-status">مفعل 🟢</span></a>
-        <a href="style.css" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-css3-alt"></i></div><div class="file-details"><span class="file-name">style.css</span><span class="file-type">التنسيق والتصميم</span></div><span class="file-status">محدث 💎</span></a>
-        <a href="script.js" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-square-js"></i></div><div class="file-details"><span class="file-name">script.js</span><span class="file-type">محرك الترجمة والـ APIs</span></div><span class="file-status">ذكي ⚡</span></a>
-        <a href="sitemap.xml" target="_blank" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-sitemap"></i></div><div class="file-details"><span class="file-name">sitemap.xml</span><span class="file-type">خريطة أرشفة جوجل</span></div><span class="file-status">مؤرشف 🔍</span></a>
-        <a href="about.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-user-gear"></i></div><div class="file-details"><span class="file-name">about.html</span><span class="file-type">السيرة المهنية</span></div><span class="file-status">موثق 📜</span></a>
-        <a href="privacy.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="file-details"><span class="file-name">privacy.html</span><span class="file-type">سياسة الخصوصية</span></div><span class="file-status">معتمد 🔒</span></a>
-        <a href="terms.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-file-contract"></i></div><div class="file-details"><span class="file-name">terms.html</span><span class="file-type">شروط الاستخدام</span></div><span class="file-status">رسمي ⚖️</span></a>
-        
-        <a href="index.html" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-html5"></i></div><div class="file-details"><span class="file-name">index.html</span><span class="file-type">الهيكل الرئيسي</span></div><span class="file-status">مفعل 🟢</span></a>
-        <a href="style.css" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-css3-alt"></i></div><div class="file-details"><span class="file-name">style.css</span><span class="file-type">التنسيق والتصميم</span></div><span class="file-status">محدث 💎</span></a>
-        <a href="script.js" class="file-card-gold"><div class="file-icon"><i class="fa-brands fa-square-js"></i></div><div class="file-details"><span class="file-name">script.js</span><span class="file-type">محرك الترجمة والـ APIs</span></div><span class="file-status">ذكي ⚡</span></a>
-        <a href="sitemap.xml" target="_blank" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-sitemap"></i></div><div class="file-details"><span class="file-name">sitemap.xml</span><span class="file-type">خريطة أرشفة جوجل</span></div><span class="file-status">مؤرشف 🔍</span></a>
-        <a href="about.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-user-gear"></i></div><div class="file-details"><span class="file-name">about.html</span><span class="file-type">السيرة المهنية</span></div><span class="file-status">موثق 📜</span></a>
-        <a href="privacy.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-shield-halved"></i></div><div class="file-details"><span class="file-name">privacy.html</span><span class="file-type">سياسة الخصوصية</span></div><span class="file-status">معتمد 🔒</span></a>
-        <a href="terms.html" class="file-card-gold"><div class="file-icon"><i class="fa-solid fa-file-contract"></i></div><div class="file-details"><span class="file-name">terms.html</span><span class="file-type">شروط الاستخدام</span></div><span class="file-status">رسمي ⚖️</span></a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Smart Lead Magnet Popup -->
-  <div id="promoPopup" class="lightbox-modal" style="display: none;">
-    <div class="lightbox-content" style="text-align: center; padding: 30px;">
-      <button class="lightbox-close" onclick="closePromoPopup()"><i class="fa-solid fa-xmark"></i></button>
-      <div style="font-size: 2.5rem; color: var(--gold-primary); margin-bottom: 10px;"><i class="fa-solid fa-gift"></i></div>
-      <h3 style="margin-bottom: 15px; color: var(--text-main);">احصل على خصم 20% على مشروعك القادم!</h3>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">سجل بريدك الإلكتروني ليصلك كود الخصم فوراً وتواصل معنا.</p>
-      <input type="email" id="promoEmail" placeholder="بريدك الإلكتروني..." style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main); margin-bottom: 15px;" />
-      <button onclick="claimPromo()" class="btn btn-primary" style="width: 100%; justify-content: center;">استلم الكود الآن 🎁</button>
-    </div>
-  </div>
-
-  <!-- Booking Modal -->
-  <div id="bookingModal" class="lightbox-modal" style="display: none;">
-    <div class="lightbox-content" style="text-align: center; padding: 30px;">
-      <button class="lightbox-close" onclick="closeBookingModal()"><i class="fa-solid fa-xmark"></i></button>
-      <h3 style="margin-bottom: 15px; color: var(--gold-primary);">حجز استشارة تقنية مجانية 📅</h3>
-      <p style="color: var(--text-muted); margin-bottom: 20px; font-size: 0.95rem;">اختر وسيلة التواصل وسأتواصل معك في أسرع وقت لتحديد الموعد:</p>
-      <a href="https://api.whatsapp.com/send?phone=33749408535&text=السلام%20عليكم%20مهندس%20طارق،%20أرغب%20في%20حجز%20مكالمة%20استشارية" target="_blank" class="btn btn-primary" style="width: 100%; justify-content: center; margin-bottom: 10px;"><i class="fa-brands fa-whatsapp"></i> حجز عبر الواتساب مباشرة</a>
-    </div>
-  </div>
 
   <!-- Footer -->
-  <footer>
-    <p>© 2026 طارق خورشيد (Tarek.Dev) - جميع الحقوق محفوظة | 
-      <a href="about.html">من نحن</a> | 
-      <a href="#contact">اتصل بنا</a> | 
-      <a href="privacy.html">سياسة الخصوصية</a> | 
-      <a href="disclaimer.html">إخلاء المسؤولية</a> | 
-      <a href="terms.html">شروط الاستخدام</a>
-    </p>
+  <footer style="text-align: center; padding: 30px; background: var(--bg-card); border-top: 1px solid var(--border-glass); margin-top: 50px; color: var(--text-muted);">
+    <p>جميع الحقوق محفوظة © 2026 للمهندس طارق خورشيد (Tarek Khorshed)</p>
+    <div style="margin-top: 15px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <a href="privacy.html" style="color: var(--gold-primary); text-decoration: none;">سياسة الخصوصية</a>
+      <a href="terms.html" style="color: var(--gold-primary); text-decoration: none;">الشروط والأحكام</a>
+      <a href="disclaimer.html" style="color: var(--gold-primary); text-decoration: none;">إخلاء المسؤولية</a>
+    </div>
   </footer>
 
-  <!-- Live Pulsing WhatsApp Float -->
-  <a href="https://api.whatsapp.com/send?phone=33749408535&text=السلام%20عليكم%20يا%20باشمهندس%20طارق،%20حابب%20أستفسر%20عن%20خدمات%20تطوير%20الموقع%20وأعمال%20التشطيبات" class="whatsapp-float" target="_blank" title="تواصل عبر الواتساب" rel="noopener">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
-
-  <button id="backToTopBtn" onclick="scrollToTop()" title="الصعود للأعلى"><i class="fa-solid fa-arrow-up"></i></button>
-
-  <script src="script.js"></script><!-- Cookie Consent Modal -->
-  <div id="cookieConsentModal" class="cookie-consent-overlay">
-    <div class="cookie-consent-box">
-      <div class="cookie-consent-title">
-        <i class="fa-solid fa-cookie-bite"></i> ملفات تعريف الارتباط والخصوصية
-      </div>
-      <p class="cookie-consent-desc">
-        نستخدم ملفات تعريف الارتباط لنقدم لك تجربة استخدام مثالية، ولتحسين منتجاتنا، ولعرض إعلانات مخصصة لك. باستخدامك لهذا الموقع، فإنك توافق على استخدام ملفات الارتباط وسياسة <a href="privacy.html" target="_blank">الخصوصية</a> الخاصة بنا.
-      </p>
-      <div class="cookie-consent-buttons">
-        <button onclick="acceptCookies()" class="cookie-btn-accept">قبول الكل (Accept All)</button>
-        <button onclick="declineCookies()" class="cookie-btn-decline">رفض الأساسية فقط (Decline)</button>
-      </div>
-    </div>
-  </div><!-- Cookie Consent Modal -->
-  <div id="cookieConsentModal" class="cookie-consent-overlay">
-    <div class="cookie-consent-box">
-      <div class="cookie-consent-title">
-        <i class="fa-solid fa-cookie-bite"></i> ملفات تعريف الارتباط والخصوصية
-      </div>
-      <p class="cookie-consent-desc">
-        نستخدم ملفات تعريف الارتباط لنقدم لك تجربة استخدام مثالية، ولتحسين منتجاتنا، ولعرض إعلانات مخصصة لك. باستخدامك لهذا الموقع، فإنك توافق على استخدام ملفات الارتباط وسياسة <a href="privacy.html" target="_blank">الخصوصية</a> الخاصة بنا.
-      </p>
-      <div class="cookie-consent-buttons">
-        <button onclick="acceptCookies()" class="cookie-btn-accept">قبول الكل (Accept All)</button>
-        <button onclick="declineCookies()" class="cookie-btn-decline">رفض الأساسية فقط (Decline)</button>
-      </div>
-    </div>
-  </div>
-</body>
+  <!-- Scripts -->
+  <script src="script.js"></script>
+  </body>
 </html>
