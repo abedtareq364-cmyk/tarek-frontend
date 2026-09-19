@@ -7,7 +7,7 @@
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "المهندس طارق خورشيد - Full Stack Developer & Bâtiment",
-  "image": "https://tarekkorshed.com/assets/images/logo.png",
+  "image": "./profile.jpg",
   "@id": "https://tarekkorshed.com",
   "url": "https://tarekkorshed.com",
   "telephone": "+33749408535",
@@ -73,12 +73,12 @@
     <!-- Open Graph / Social Media Meta Tags -->
     <meta property="og:title" content="المهندس طارق خورشيد | Full Stack Developer & Bâtiment" />
     <meta property="og:description" content="منصة احترافية تجمع بين هندسة وتطوير الويب المتكامل وبين خدمات البناء والتشطيبات الفنية في فرنسا." />
-    <meta property="og:image" content="https://tarekkorshed.com/profile.jpg" />
+    <meta property="og:image" content="./profile.jpg" />
     <meta property="og:url" content="https://tarekkorshed.com/" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="https://tarekkorshed.com/profile.jpg" />
-    <link rel="apple-touch-icon" href="https://tarekkorshed.com/profile.jpg" />
+    <link rel="icon" type="image/jpeg" sizes="32x32" href="./profile.jpg" />
+    <link rel="apple-touch-icon" href="./profile.jpg" />
 
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
@@ -97,14 +97,14 @@
 
       <ul class="nav-links">
         <li><a href="#hero" data-i18n="nav_home">الرئيسية</a></li>
-        <li><a href="#about" data-i18n="nav_about">من نحن</a></li>
-        <li><a href="#portfolio" data-i18n="nav_portfolio">معرض الأعمال</a></li>
-        <li><a href="#widgets" data-i18n="nav_widgets">أدوات تفاعلية</a></li>
         <li><a href="#services" data-i18n="nav_services">الخدمات</a></li>
+        <li><a href="#portfolio" data-i18n="nav_portfolio">معرض الأعمال</a></li>
+        <li><a href="#calculator" data-i18n="nav_calc">حاسبة الأسعار</a></li>
+        <li><a href="#blog" data-i18n="nav_blog">المدونة</a></li>
+        <li><a href="#about" data-i18n="nav_about">من نحن</a></li>
+        <li><a href="#widgets" data-i18n="nav_widgets">أدوات تفاعلية</a></li>
         <li><a href="https://tarek-game.vercel.app" target="_blank" style="color: var(--gold-primary); font-weight: bold;">اللعبة 🦆</a></li>
         <li><a href="#digital-store" style="color: #38bdf8; font-weight: bold;"><i class="fa-solid fa-store"></i> المتجر</a></li>
-        <li><a href="#blog" data-i18n="nav_blog">المدونة</a></li>
-        <li><a href="#calculator" data-i18n="nav_calc">حاسبة الأسعار</a></li>
         <li><a href="#contact" data-i18n="nav_contact">التواصل</a></li>
       </ul>
 
@@ -132,74 +132,76 @@
   <section class="hero" id="hero">
     <div class="hero-container">
       <div class="hero-text-wrapper">
-        <div class="badge" data-i18n="hero_badge">💻 Full Stack Developer | مطور ويب متكامل وبورتفوليو</div>
+        <div class="badge" data-i18n="hero_badge">💻 Full Stack Developer | Développeur & Bâtiment France</div>
         <h1 data-i18n="hero_title">المهندس طارق خورشيد</h1>
         <p data-i18n="hero_desc">
-          مطور ويب متكامل (Full Stack) وخبير في أعمال التشطيبات والديكورات بفرنسا. أقدم حلول برمجية وهندسية متكاملة فائقة الجودة تليق بتطلعات العملاء.
+          Développeur Full Stack & Expert en Travaux de Bâtiment en France (Plaquiste, Carreleur, Peintre). Solutions web professionnelles et rénovation de haute qualité.
         </p>
         <div class="btn-group">
-          <a href="https://api.whatsapp.com/send?phone=33749408535&text=السلام%20عليكم%20يا%20باشمهندس%20طارق،%20حابب%20أستفسر%20عن%20خدمات%20تطوير%20المواقع%20وأعمال%20التشطيبات" target="_blank" class="btn btn-primary" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_whatsapp">تواصل عبر الواتساب</span>
+          <a href="https://api.whatsapp.com/send?phone=33749408535&text=Bonjour%20Ingénieur%20Tarek,%20je%20souhaite%20me%20renseigner%20sur%20vos%20services%20de%20développement%20web%20et%20de%20bâtiment." target="_blank" class="btn btn-primary" rel="noopener">
+            <i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_whatsapp">Contact WhatsApp</span>
           </a>
           <a href="#contact" class="btn btn-secondary" style="border-color: #38bdf8; color: #38bdf8;">
-            <i class="fa-regular fa-calendar-check"></i> <span>حجز استشارة مجانية 📅</span>
+            <i class="fa-regular fa-calendar-check"></i> <span>Consultation Gratuite 📅</span>
           </a>
         </div>
       </div>
 
       <div class="hero-image-wrapper">
         <div class="clean-profile-box">
-          <img src="profile.jpg" alt="المهندس طارق خورشيد" class="clean-profile-img" />
+          <img src="./profile.jpg" alt="المهندس طارق خورشيد" class="clean-profile-img" />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- About Section -->
-  <section class="container" id="about">
-    <h2 class="section-title">من نحن <span>وصفحة التعريف بالمطور</span></h2>
-    <div style="background: var(--bg-card); border: 1.5px solid var(--border-glass); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-luxury); text-align: center; max-width: 900px; margin: 0 auto;">
-      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 25px;">
-        أهلاً بك في المنصة الرسمية للمهندس <strong style="color: var(--gold-primary);">طارق خورشيد (Tarek.Dev)</strong>. نختص في تقديم حلول هندسة وتطوير الويب المتكامل (Full Stack Development) وأعمال البناء والتشطيبات الفنية (Métiers du Bâtiment) بفرنسا. هدفنا توفير أعلى معايير الجودة والدقة سواء في البرمجة الشاملة أو في تنفيذ المشاريع على أرض الواقع.
-      </p>
-      <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px;">
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-code" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">تطوير Full Stack شامل</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">بناء واجهات متقدمة وبرمجة وتكامل سيرفرات وقواعد بيانات بكفاءة.</p>
-        </div>
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-hammer" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">تشطيبات وديكورات بفرنسا</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">خبرة احترافية في السيراميك، الجبس بورد، والدهانات بدقة متناهية.</p>
-        </div>
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">أمان وثبات عالي</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">تأمين كامل للملفات وحماية بيانات الزوار والعملاء.</p>
-        </div>
-      </div>
+  <!-- 1. Services Section (الخدمات أولاً - مع قسم الباتيمو بالفرنسية) -->
+  <section class="container" id="services">
+    <h2 class="section-title">Nos Services <span>Développement & Bâtiment en France</span></h2>
+    <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
+        <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-code"></i></div>
+        <h3 style="color: var(--text-main); margin-bottom: 10px;">Développement Web Full Stack</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Création de sites web, applications sur mesure et plateformes e-commerce performantes.</p>
+      </a>
+      <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
+        <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-hammer"></i></div>
+        <h3 style="color: var(--text-main); margin-bottom: 10px;">Métiers du Bâtiment & Rénovation</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Expertise professionnelle en pose de carrelage (Carreleur), cloisons sèches plâtrerie (Plaquiste) et peinture intérieure (Peintre) en Île-de-France.</p>
+      </a>
     </div>
   </section>
 
-  <!-- Portfolio Section -->
+  <!-- 2. Portfolio / Projects Section (المشاريع بعد الخدمات) -->
   <section class="container" id="portfolio">
-    <h2 class="section-title"><span data-i18n="portfolio_title">معرض المشاريع والأعمال</span></h2>
+    <h2 class="section-title"><span>Portfolio & Nouveaux Projets</span></h2>
     <div class="filter-buttons">
-      <button class="filter-btn active" data-i18n="portfolio_all">الكل 📁</button>
-      <button class="filter-btn" data-i18n="portfolio_web">مواقع ويب 🌐</button>
-      <button class="filter-btn" data-i18n="portfolio_apps">تطبيقات 📱</button>
-      <button class="filter-btn" data-i18n="portfolio_more">أكثر من ⚡</button>
+      <button class="filter-btn active">Tous 📁</button>
+      <button class="filter-btn">Sites Web 🌐</button>
+      <button class="filter-btn">Applications 📱</button>
+      <button class="filter-btn">Bâtiment ⚡</button>
     </div>
 
     <div class="portfolio-grid">
+      <!-- المشروع الجديد (Fullstack Project Management) -->
+      <div class="portfolio-item" data-category="web">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="إدارة المشاريع" class="portfolio-thumb" />
+        <div class="portfolio-info">
+          <div>
+            <span class="portfolio-tag" style="background: #38bdf8; color: #0f172a;">Nouveau Projet</span>
+            <h3>Fullstack Project Management App</h3>
+            <p>Application web interactive pour la gestion des tâches, suivi de chantiers et projets de développement.</p>
+          </div>
+        </div>
+      </div>
+
       <div class="portfolio-item" data-category="web">
         <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="الموقع الشخصي" class="portfolio-thumb" />
         <div class="portfolio-info">
           <div>
-            <span class="portfolio-tag">مواقع ويب</span>
-            <h3>بورتفوليو Full Stack Developer</h3>
-            <p>موقع بورتفوليو برمجي متكامل بـ 5 لغات وتصميم راقي.</p>
+            <span class="portfolio-tag">Sites Web</span>
+            <h3>Portfolio Full Stack Developer</h3>
+            <p>Site web professionnel multilingue avec design moderne et mode sombre.</p>
           </div>
         </div>
       </div>
@@ -208,10 +210,111 @@
         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="لعبة صيد البط" class="portfolio-thumb" />
         <div class="portfolio-info">
           <div>
-            <span class="portfolio-tag">تطبيقات</span>
-            <h3>لعبة صيد البط 🦆</h3>
-            <p>تطبيق أركيد أونلاين بـ JavaScript وتأثيرات صوتية حركية.</p>
+            <span class="portfolio-tag">Applications</span>
+            <h3>Jeu de Chasse aux Canards 🦆</h3>
+            <p>Mini-jeu interactif en JavaScript avec effets sonores et animations fluides.</p>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Calculator Section (حاسبة الأسعار فوق المقالات مباشرة) -->
+  <section class="container" id="calculator">
+    <h2 class="section-title"><span>Simulateur de Devis & Estimation en Ligne</span></h2>
+    <div class="calculator-box" style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-glass); max-width: 700px; margin: 0 auto;">
+      <div class="calc-option" style="margin-bottom: 20px;">
+        <label style="display: block; margin-bottom: 8px; color: var(--text-main); font-weight: 600;">Sélectionnez le domaine de service :</label>
+        <select id="serviceCategory" onchange="toggleCalculatorType()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main); font-size: 1rem;">
+          <option value="web">Développement Web & Applications (Full Stack)</option>
+          <option value="building">Métiers du Bâtiment en France (Rénovation)</option>
+        </select>
+      </div>
+
+      <div id="webCalcOptions">
+        <div class="calc-option" style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">Type de projet web :</label>
+          <select id="siteType" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
+            <option value="150">Site Personnel / Portfolio (150€)</option>
+            <option value="300">Site Vitrine / Entreprise (300€)</option>
+            <option value="500">Plateforme E-commerce / Sur mesure (500€)</option>
+          </select>
+        </div>
+        <div class="calc-option" style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">Nombre de langues :</label>
+          <select id="langCount" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
+            <option value="1">Une seule langue</option>
+            <option value="1.3">Bilingue (Arabe + Français / Anglais)</option>
+            <option value="1.5">Multilingue (3 langues ou plus)</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="buildingCalcOptions" style="display: none;">
+        <div class="calc-option" style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">Prestation Bâtiment :</label>
+          <select id="buildingType" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
+            <option value="35">Pose de Carrelage - Carreleur (dès 35€ / m²)</option>
+            <option value="25">Cloisons & Plâtrerie - Plaquiste (dès 25€ / m²)</option>
+            <option value="20">Peinture & Finitions - Peintre (dès 20€ / m²)</option>
+          </select>
+        </div>
+        <div class="calc-option" style="margin-bottom: 20px;">
+          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">Surface approximative (en m²) :</label>
+          <input type="number" id="surfaceArea" value="30" min="5" max="1000" oninput="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
+        </div>
+      </div>
+
+      <div class="calc-result" style="text-align: center; margin-top: 25px; padding: 20px; background: var(--bg-secondary); border-radius: 10px; border: 1px solid var(--border-glass);">
+        <p style="color: var(--text-muted); font-size: 0.95rem;">Estimation du coût total :</p>
+        <div class="price-tag" id="totalPrice" style="font-size: 2.2rem; color: var(--gold-primary); font-weight: bold; margin: 10px 0;">150€</div>
+      </div>
+
+      <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+        <button id="exportPdfBtn" onclick="exportToPDF()" style="background: #1e293b; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;">
+            Télécharger le Devis PDF 📄
+        </button>
+        <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;">
+            Commander via WhatsApp 💬
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Blog Section (المقالات تحت الحاسبة) -->
+  <section class="container" id="blog">
+    <h2 class="section-title"><span>Blog & Articles Techniques</span></h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+      <div style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass);">
+        <span style="color: var(--gold-primary); font-size: 0.85rem;">19 Septembre 2026</span>
+        <h3 style="color: var(--text-main); margin: 10px 0;">L'importance du Web Full Stack en France</h3>
+        <p style="color: var(--text-muted); font-size: 0.9rem;">Comment l'alliance du développement web moderne et de l'artisanat du bâtiment renforce votre visibilité digitale.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. About Section (النبذة التعريفية تحت المقالات) -->
+  <section class="container" id="about">
+    <h2 class="section-title">À Propos de <span>l'Ingénieur Tarek Khorshed</span></h2>
+    <div style="background: var(--bg-card); border: 1.5px solid var(--border-glass); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-luxury); text-align: center; max-width: 900px; margin: 0 auto;">
+      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 25px;">
+        Bienvenue sur la plateforme officielle de l'ingénieur <strong style="color: var(--gold-primary);">Tarek Khorshed (Tarek.Dev)</strong>. Spécialisé en ingénierie de développement web Full Stack et en travaux de rénovation et finition du bâtiment en France (Plaquiste, Carreleur, Peintre). Notre engagement : offrir la plus haute précision et qualité, que ce soit en ligne ou sur les chantiers.
+      </p>
+      <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px;">
+        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
+          <i class="fa-solid fa-code" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
+          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Full Stack Web</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Interfaces modernes, architectures robustes et bases de données.</p>
+        </div>
+        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
+          <i class="fa-solid fa-hammer" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
+          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Travaux de Bâtiment</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Carrelage, plâtrerie (plaquiste) et peinture soignée en France.</p>
+        </div>
+        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
+          <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
+          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Sécurité & Fiabilité</h4>
+          <p style="font-size: 0.85rem; color: var(--text-muted);">Protection et performance optimale garanties sur tous les projets.</p>
         </div>
       </div>
     </div>
@@ -219,47 +322,30 @@
 
   <!-- Interactive Widgets -->
   <section class="container" id="widgets">
-    <h2 class="section-title"><span data-i18n="widgets_title">أدوات تفاعلية حية (APIs)</span></h2>
+    <h2 class="section-title"><span>Outils Interactifs (APIs en Direct)</span></h2>
     <div class="widgets-wrapper" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
       <div class="rates-widget-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); flex: 1; min-width: 300px;">
         <div class="rates-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <h3 style="color: var(--text-main); font-size: 1.1rem;"><i class="fa-solid fa-calculator"></i> محول العملات المباشر</h3>
-          <span class="live-badge" style="color: #22c55e; font-size: 0.85rem;">أسعار حية 🔴</span>
+          <h3 style="color: var(--text-main); font-size: 1.1rem;"><i class="fa-solid fa-calculator"></i> Convertisseur de Devises</h3>
+          <span class="live-badge" style="color: #22c55e; font-size: 0.85rem;">En direct 🔴</span>
         </div>
         <div class="converter-box">
           <div class="currency-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
             <input type="number" id="fromAmount" value="1" oninput="convertCurrencyLive()" style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
             <select id="fromCurrency" onchange="convertCurrencyLive()" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-              <option value="EUR">🇪🇺 يورو (EUR)</option>
-              <option value="USD">🇺🇸 دولار (USD)</option>
+              <option value="EUR">🇪🇺 EUR</option>
+              <option value="USD">🇺🇸 USD</option>
             </select>
           </div>
           <div class="currency-row" style="display: flex; gap: 10px;">
-            <input type="number" id="toAmount" readonly placeholder="النتيجة" style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
+            <input type="number" id="toAmount" readonly placeholder="Résultat" style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
             <select id="toCurrency" onchange="convertCurrencyLive()" style="padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-              <option value="USD">🇺🇸 دولار (USD)</option>
-              <option value="EUR">🇪🇺 يورو (EUR)</option>
+              <option value="USD">🇺🇸 USD</option>
+              <option value="EUR">🇪🇺 EUR</option>
             </select>
           </div>
         </div>
       </div>
-    </div>
-  </section>
-
-  <!-- Services Section -->
-  <section class="container" id="services">
-    <h2 class="section-title" data-i18n="services_title">الخدمات <span>البرمجية والتشطيبات</span></h2>
-    <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
-        <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-code"></i></div>
-        <h3 style="color: var(--text-main); margin-bottom: 10px;">تطوير ويب متكامل (Full Stack)</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">بناء وتطوير المواقع والمنصات والتطبيقات الشاملة من البداية وحتى الإطلاق.</p>
-      </a>
-      <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
-        <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-hammer"></i></div>
-        <h3 style="color: var(--text-main); margin-bottom: 10px;">أعمال التشطيبات والديكورات (Bâtiment)</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">تنفيذ أعمال السيراميك، الجبس بورد، والدهانات الداخلية بفرنسا.</p>
-      </a>
     </div>
   </section>
 
@@ -267,135 +353,73 @@
   <section id="digital-store" style="background: #0f172a; color: #fff; padding: 50px 20px; border-radius: 12px; margin: 30px auto; max-width: 1200px;">
     <div style="max-width: 1100px; margin: 0 auto;">
         <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: #38bdf8; font-size: 28px; margin-bottom: 10px;">المتجر الرقمي والخدمات البرمجية</h2>
-            <p style="color: #94a3b8; font-size: 16px;">استعرض أحدث القوالب، السكريبتات، والخدمات المصممة خصيصاً لتطوير أعمالك وموقعك.</p>
+            <h2 style="color: #38bdf8; font-size: 28px; margin-bottom: 10px;">Boutique Numérique & Services</h2>
+            <p style="color: #94a3b8; font-size: 16px;">Découvrez nos modèles, scripts et services conçus pour booster votre activité.</p>
         </div>
 
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
             <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">قالب موقع تعريفي (Portfolio)</h3>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">قالب متجاوب حديث يدعم تعدد اللغات والوضع المظلم.</p>
+                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">Modèle de Portfolio Web</h3>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">Template responsive moderne avec multilingue et mode sombre.</p>
                 </div>
                 <div>
                     <span style="color: #38bdf8; font-size: 22px; font-weight: bold; display: block; margin-bottom: 15px;">€29</span>
-                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=أرغب%20في%20شراء%20قالب%20موقع%20تعريفي" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">شراء الآن</a>
+                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=Je%20souhaite%20acheter%20le%20template%20de%20portfolio" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">Acheter</a>
                 </div>
             </div>
 
             <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
                 <div>
-                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">سكربت حاسبة الأسعار المتطورة</h3>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">أداة تفاعلية لحساب التكاليف وربطها بالواتساب وPDF.</p>
+                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">Script Simulateur de Devis</h3>
+                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">Outil interactif de calcul de coûts connecté à WhatsApp et PDF.</p>
                 </div>
                 <div>
                     <span style="color: #38bdf8; font-size: 22px; font-weight: bold; display: block; margin-bottom: 15px;">€19</span>
-                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=أرغب%20في%20شراء%20سكربت%20حاسبة%20الأسعار" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">شراء الآن</a>
+                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=Je%20souhaite%20acheter%20le%20script%20simulateur" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">Acheter</a>
                 </div>
             </div>
         </div>
     </div>
   </section>
 
-  <!-- Calculator Section -->
-  <section class="container" id="calculator">
-    <h2 class="section-title"><span data-i18n="calc_title">حاسبة التقدير الفوري للمشاريع والتشطيبات</span></h2>
-    <div class="calculator-box" style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-glass); max-width: 700px; margin: 0 auto;">
-      <div class="calc-option" style="margin-bottom: 20px;">
-        <label data-i18n="calc_service_label" style="display: block; margin-bottom: 8px; color: var(--text-main);">اختر مجال الخدمة المطلوب:</label>
-        <select id="serviceCategory" onchange="toggleCalculatorType()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-          <option value="web" data-i18n="opt_cat_web">تطوير المواقع والتطبيقات (Full Stack)</option>
-          <option value="building" data-i18n="opt_cat_building">مهن البناء والتشطيب بفرنسا (Métiers du Bâtiment)</option>
-        </select>
-      </div>
-
-      <div id="webCalcOptions">
-        <div class="calc-option" style="margin-bottom: 20px;">
-          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">نوع الموقع المطلوب:</label>
-          <select id="siteType" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-            <option value="150">موقع شخصي / بورتفوليو تعريف (150€)</option>
-            <option value="300">موقع شركة أو نشاط تجاري (300€)</option>
-            <option value="500">متجر إلكتروني متكامل (500€)</option>
-          </select>
-        </div>
-        <div class="calc-option" style="margin-bottom: 20px;">
-          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">عدد اللغات في الموقع:</label>
-          <select id="langCount" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-            <option value="1">لغة واحدة</option>
-            <option value="1.3">لغتان (عربي + فرنسي/إنجليزي)</option>
-            <option value="1.5">ثلاث لغات أو أكثر</option>
-          </select>
-        </div>
-      </div>
-
-      <div id="buildingCalcOptions" style="display: none;">
-        <div class="calc-option" style="margin-bottom: 20px;">
-          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">نوع الخدمة (Métiers du Bâtiment):</label>
-          <select id="buildingType" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-            <option value="35">تركيب سيراميك وبلاط - Carreleur (ابتداءً من 35€ / م²)</option>
-            <option value="25">أعمال الجبس بورد والديكور - Plaquiste (ابتداءً من 25€ / م²)</option>
-            <option value="20">الدهانات والتشطيبات الداخلية - Peintre (ابتداءً من 20€ / م²)</option>
-          </select>
-        </div>
-        <div class="calc-option" style="margin-bottom: 20px;">
-          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">المساحة التقريبية (بالمتر المربع م²):</label>
-          <input type="number" id="surfaceArea" value="30" min="5" max="1000" oninput="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
-        </div>
-      </div>
-
-      <div class="calc-result" style="text-align: center; margin-top: 25px; padding: 20px; background: var(--bg-secondary); border-radius: 10px;">
-        <p style="color: var(--text-muted);">التكلفة التقديرية المبدئية:</p>
-        <div class="price-tag" id="totalPrice" style="font-size: 2rem; color: var(--gold-primary); font-weight: bold; margin: 10px 0;">150€</div>
-      </div>
-
-      <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
-        <button id="exportPdfBtn" onclick="exportToPDF()" style="background: #1e293b; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%;">
-            تحميل عرض السعر PDF 📄
-        </button>
-        <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%;">
-            إرسال الطلب عبر الواتساب 💬
-        </button>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
+  <!-- 6. Contact & Social Media Section (التواصل والسوشيال ميديا في النهاية من تحت خالص) -->
   <section class="container" id="contact" style="padding: 60px 20px; text-align: center;">
-    <h2 class="section-title">تواصل <span>معنا</span></h2>
-    <p style="color: var(--text-muted); margin-bottom: 30px;">يسعدنا تواصلكم معنا لأي استفسار برمجي أو طلب خدمات تشطيبات البناء في فرنسا.</p>
+    <h2 class="section-title">Contactez <span>Nous</span></h2>
+    <p style="color: var(--text-muted); margin-bottom: 30px;">Discutons de votre projet web ou de vos travaux de rénovation et bâtiment en France.</p>
     
     <!-- وسائل التواصل الاجتماعي والاتصال المباشر -->
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
         <a href="https://api.whatsapp.com/send?phone=33749408535" target="_blank" style="background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-whatsapp"></i> واتساب
+            <i class="fa-brands fa-whatsapp"></i> WhatsApp
         </a>
         <a href="mailto:contact@tarekkorshed.com" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-glass); padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-envelope"></i> البريد الإلكتروني
+            <i class="fa-solid fa-envelope"></i> Email
         </a>
         <a href="https://facebook.com/tarekkorshed" target="_blank" style="background: #1877F2; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-facebook"></i> فيسبوك
+            <i class="fa-brands fa-facebook"></i> Facebook
         </a>
         <a href="https://instagram.com/tarekkorshed" target="_blank" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #df5950 45%, #c62368 60%, #6352ce 90%); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-instagram"></i> إنستجرام
+            <i class="fa-brands fa-instagram"></i> Instagram
         </a>
         <a href="https://tiktok.com/@tarekkorshed" target="_blank" style="background: #000000; color: white; border: 1px solid #333; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-tiktok"></i> تيك توك
+            <i class="fa-brands fa-tiktok"></i> TikTok
         </a>
         <a href="https://twitter.com/tarekkorshed" target="_blank" style="background: #000000; color: white; border: 1px solid #333; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-x-twitter"></i> تويتر (إكس)
+            <i class="fa-brands fa-x-twitter"></i> Twitter (X)
         </a>
         <a href="https://github.com/abedtareq364-cmyk" target="_blank" style="background: #24292e; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-github"></i> جيت هب
+            <i class="fa-brands fa-github"></i> GitHub
         </a>
         <a href="https://www.malt.fr/profile/tareqabed" target="_blank" style="background: #fc5757; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-briefcase"></i> مالت (Malt)
+            <i class="fa-solid fa-briefcase"></i> Malt
         </a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer style="background: #0b0f19; color: #94a3b8; padding: 30px 20px; text-align: center; border-top: 1px solid #1e293b;">
-    <p>جميع الحقوق محفوظة © 2026 المهندس طارق خورشيد (Tarek Khorshed)</p>
+    <p>Tous droits réservés © 2026 Tarek Khorshed (المهندس طارق خورشيد)</p>
     <p style="font-size: 13px; margin-top: 5px;">Argenteuil, France | Full Stack Developer & Bâtiment Services</p>
   </footer>
 
@@ -459,17 +483,17 @@
         } else {
             const buildingElem = document.getElementById('buildingType');
             const area = document.getElementById('surfaceArea').value;
-            details = `${buildingElem.options[buildingElem.selectedIndex].text} - المساحة: ${area}م²`;
+            details = `${buildingElem.options[buildingElem.selectedIndex].text} - Surface : ${area}m²`;
         }
 
-        const message = `السلام عليكم بشمهندس طارق، أرغب في طلب عرض السعر التالي:\n- الخدمة: ${details}\n- التكلفة التقديرية: ${price}`;
+        const message = `Bonjour Ingénieur Tarek, je souhaite commander le devis suivant :\n- Prestation : ${details}\n- Estimation : ${price}`;
         const url = `https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(message)}`;
         window.open(url, '_blank');
     }
 
     // تحميل عرض السعر بصيغة PDF
     function exportToPDF() {
-        alert("جاري تجهيز وتحميل ملف PDF لعرض السعر...");
+        alert("Génération et téléchargement du devis PDF en cours...");
     }
 
     // تحويل العملات التجريبي السريع
