@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" dir="ltr">
+<html lang="fr" dir="ltr" id="htmlRoot">
   <head>
     <meta charset="UTF-8" />
     <script type="application/ld+json">
@@ -64,26 +64,25 @@
 
     <!-- Meta SEO -->
     <title>Ingénieur Tarek Khorshed | Full Stack Developer & Bâtiment France</title>
-    <meta name="description" content="Site officiel de l'ingénieur Tarek Khorshed - Développeur Full Stack et expert en travaux de rénovation et bâtiment (Plaquiste, Carreleur, Peintre) en France." />
-    <meta name="keywords" content="Tarek Khorshed, Ingénieur Tarek Khorshed, tarekkorshed.com, Full Stack Developer, plaquiste france, carreleur argenteuil, peintre en batiment, rénovation, simulateur de devis" />
+    <meta name="description" content="Site officiel de l'ingénieur Tarek Khorshed - Développeur Full Stack et expert en travaux de rénovation et bâtiment en France." />
     <meta name="author" content="Tarek Khorshed" />
-    <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://tarekkorshed.com/" />
-
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ingénieur Tarek Khorshed | Full Stack Developer & Bâtiment" />
-    <meta property="og:description" content="Plateforme professionnelle combinant l'ingénierie web Full Stack et l'expertise en travaux du bâtiment en France." />
-    <meta property="og:image" content="./profile.jpg" />
-    <meta property="og:url" content="https://tarekkorshed.com/" />
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/jpeg" sizes="32x32" href="./profile.jpg" />
-    <link rel="apple-touch-icon" href="./profile.jpg" />
 
     <!-- Fonts & Styles -->
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;900&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link rel="stylesheet" href="style.css" />
+    <style>
+      .lang-select {
+        background: var(--bg-secondary);
+        color: var(--text-main);
+        border: 1px solid var(--border-color);
+        padding: 6px 12px;
+        border-radius: 8px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    </style>
   </head>
   <body>
 
@@ -96,19 +95,28 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#hero">Accueil</a></li>
-        <li><a href="#services">Services</a></li>
-        <li><a href="#portfolio">Portfolio</a></li>
-        <li><a href="#calculator">Devis</a></li>
-        <li><a href="#blog">Blog</a></li>
-        <li><a href="#about">À Propos</a></li>
-        <li><a href="#widgets">Outils</a></li>
+        <li><a href="#hero" data-i18n="nav_home">Accueil</a></li>
+        <li><a href="#services" data-i18n="nav_services">Services</a></li>
+        <li><a href="#portfolio" data-i18n="nav_portfolio">Portfolio</a></li>
+        <li><a href="#calculator" data-i18n="nav_calculator">Devis</a></li>
+        <li><a href="#blog" data-i18n="nav_blog">Blog</a></li>
+        <li><a href="#about" data-i18n="nav_about">À Propos</a></li>
+        <li><a href="#widgets" data-i18n="nav_tools">Outils</a></li>
         <li><a href="https://tarek-game.vercel.app" target="_blank" style="color: var(--gold-primary); font-weight: bold;">Jeu 🦆</a></li>
-        <li><a href="#digital-store" style="color: #38bdf8; font-weight: bold;"><i class="fa-solid fa-store"></i> Boutique</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#digital-store" style="color: #38bdf8; font-weight: bold;" data-i18n="nav_store">Boutique</a></li>
+        <li><a href="#contact" data-i18n="nav_contact">Contact</a></li>
       </ul>
 
-      <div class="header-controls">
+      <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
+        <!-- Language Switcher (5 Languages) -->
+        <select id="langSwitcher" class="lang-select" onchange="changeLanguage(this.value)">
+          <option value="fr" selected>🇫🇷 FR</option>
+          <option value="en">🇬🇧 EN</option>
+          <option value="ar">🇸🇦 AR</option>
+          <option value="es">🇪🇸 ES</option>
+          <option value="de">🇩🇪 DE</option>
+        </select>
+
         <button id="themeToggleBtn" class="theme-btn" onclick="toggleTheme()" title="Changer le thème">
           <i class="fa-solid fa-moon"></i>
         </button>
@@ -120,17 +128,17 @@
   <section class="hero" id="hero">
     <div class="hero-container">
       <div class="hero-text-wrapper">
-        <div class="badge">💻 Full Stack Developer | Développeur & Bâtiment France</div>
-        <h1>Ingénieur Tarek Khorshed</h1>
-        <p>
+        <div class="badge" data-i18n="hero_badge">💻 Full Stack Developer | Développeur & Bâtiment France</div>
+        <h1 data-i18n="hero_title">Ingénieur Tarek Khorshed</h1>
+        <p data-i18n="hero_desc">
           Développeur Full Stack & Expert en Travaux de Bâtiment en France (Plaquiste, Carreleur, Peintre). Solutions web professionnelles et rénovation de haute qualité en Île-de-France.
         </p>
         <div class="btn-group">
           <a href="https://api.whatsapp.com/send?phone=33749408535&text=Bonjour%20Ingénieur%20Tarek,%20je%20souhaite%20me%20renseigner%20sur%20vos%20services." target="_blank" class="btn btn-primary" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> <span>Contact WhatsApp</span>
+            <i class="fa-brands fa-whatsapp"></i> <span data-i18n="btn_whatsapp">Contact WhatsApp</span>
           </a>
           <a href="#contact" class="btn btn-secondary" style="border-color: #38bdf8; color: #38bdf8;">
-            <i class="fa-regular fa-calendar-check"></i> <span>Consultation Gratuite 📅</span>
+            <i class="fa-regular fa-calendar-check"></i> <span data-i18n="btn_consultation">Consultation Gratuite 📅</span>
           </a>
         </div>
       </div>
@@ -145,61 +153,42 @@
 
   <!-- 1. Services Section -->
   <section class="container" id="services">
-    <h2 class="section-title">Nos Services <span>Développement & Bâtiment en France</span></h2>
+    <h2 class="section-title"><span data-i18n="services_main_title">Nos Services</span> <span style="font-size: 1rem; color: var(--gold-primary);" data-i18n="services_sub_title">Développement & Bâtiment en France</span></h2>
     <div class="services-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
       <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
         <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-code"></i></div>
-        <h3 style="color: var(--text-main); margin-bottom: 10px;">Développement Web Full Stack</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Création de sites web, applications sur mesure et plateformes e-commerce performantes.</p>
+        <h3 style="color: var(--text-main); margin-bottom: 10px;" data-i18n="service_1_title">Développement Web Full Stack</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="service_1_desc">Création de sites web, applications sur mesure et plateformes e-commerce performantes.</p>
       </a>
       <a href="#contact" class="service-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); text-decoration: none;">
         <div class="service-icon" style="color: var(--gold-primary); font-size: 2rem; margin-bottom: 15px;"><i class="fa-solid fa-hammer"></i></div>
-        <h3 style="color: var(--text-main); margin-bottom: 10px;">Métiers du Bâtiment & Rénovation</h3>
-        <p style="color: var(--text-muted); font-size: 0.95rem;">Expertise professionnelle en pose de carrelage (Carreleur), cloisons sèches plâtrerie (Plaquiste) et peinture intérieure (Peintre) en Île-de-France.</p>
+        <h3 style="color: var(--text-main); margin-bottom: 10px;" data-i18n="service_2_title">Métiers du Bâtiment & Rénovation</h3>
+        <p style="color: var(--text-muted); font-size: 0.95rem;" data-i18n="service_2_desc">Expertise professionnelle en pose de carrelage, plâtrerie et peinture intérieure en Île-de-France.</p>
       </a>
     </div>
   </section>
 
-  <!-- 2. Portfolio / Projects Section -->
+  <!-- 2. Portfolio Section (مع المشروع الجديد) -->
   <section class="container" id="portfolio">
-    <h2 class="section-title"><span>Portfolio & Nouveaux Projets</span></h2>
-    <div class="filter-buttons">
-      <button class="filter-btn active">Tous 📁</button>
-      <button class="filter-btn">Sites Web 🌐</button>
-      <button class="filter-btn">Applications 📱</button>
-      <button class="filter-btn">Bâtiment ⚡</button>
-    </div>
-
+    <h2 class="section-title"><span data-i18n="portfolio_title">Portfolio & Nouveaux Projets</span></h2>
     <div class="portfolio-grid">
-      <!-- المشروع الجديد (Fullstack Project Management App) -->
-      <div class="portfolio-item" data-category="web">
+      <!-- Fullstack Project Management App -->
+      <div class="portfolio-item">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Gestion de projets" class="portfolio-thumb" />
         <div class="portfolio-info">
           <div>
-            <span class="portfolio-tag" style="background: #38bdf8; color: #0f172a;">Nouveau Projet</span>
+            <span class="portfolio-tag" style="background: #38bdf8; color: #0f172a;" data-i18n="project_new_tag">Nouveau Projet</span>
             <h3>Fullstack Project Management App</h3>
-            <p>Application web interactive pour la gestion des tâches, suivi de chantiers et projets de développement.</p>
+            <p data-i18n="project_new_desc">Application web interactive pour la gestion des tâches, suivi de chantiers et projets de développement.</p>
           </div>
         </div>
       </div>
-
-      <div class="portfolio-item" data-category="web">
-        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&w=800&q=80" alt="Portfolio personnel" class="portfolio-thumb" />
-        <div class="portfolio-info">
-          <div>
-            <span class="portfolio-tag">Sites Web</span>
-            <h3>Portfolio Full Stack Developer</h3>
-            <p>Site web professionnel multilingue avec design moderne et mode sombre.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="portfolio-item" data-category="apps">
+      <div class="portfolio-item">
         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=800&q=80" alt="Jeu de canards" class="portfolio-thumb" />
         <div class="portfolio-info">
           <div>
-            <span class="portfolio-tag">Applications</span>
-            <h3>Jeu de Chasse aux Canards 🦆</h3>
+            <span class="portfolio-tag">Jeu 🦆</span>
+            <h3>Jeu de Chasse aux Canards</h3>
             <p>Mini-jeu interactif en JavaScript avec effets sonores et animations fluides.</p>
           </div>
         </div>
@@ -209,7 +198,7 @@
 
   <!-- 3. Calculator Section -->
   <section class="container" id="calculator">
-    <h2 class="section-title"><span>Simulateur de Devis & Estimation en Ligne</span></h2>
+    <h2 class="section-title"><span data-i18n="calc_title">Simulateur de Devis & Estimation en Ligne</span></h2>
     <div class="calculator-box" style="background: var(--bg-card); padding: 30px; border-radius: 12px; border: 1px solid var(--border-glass); max-width: 700px; margin: 0 auto;">
       <div class="calc-option" style="margin-bottom: 20px;">
         <label style="display: block; margin-bottom: 8px; color: var(--text-main); font-weight: 600;">Sélectionnez le domaine de service :</label>
@@ -226,14 +215,6 @@
             <option value="150">Site Personnel / Portfolio (150€)</option>
             <option value="300">Site Vitrine / Entreprise (300€)</option>
             <option value="500">Plateforme E-commerce / Sur mesure (500€)</option>
-          </select>
-        </div>
-        <div class="calc-option" style="margin-bottom: 20px;">
-          <label style="display: block; margin-bottom: 8px; color: var(--text-main);">Nombre de langues :</label>
-          <select id="langCount" onchange="calculatePrice()" style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);">
-            <option value="1">Une seule langue</option>
-            <option value="1.3">Bilingue (Français + Anglais / Arabe)</option>
-            <option value="1.5">Multilingue (3 langues ou plus)</option>
           </select>
         </div>
       </div>
@@ -259,9 +240,6 @@
       </div>
 
       <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
-        <button id="exportPdfBtn" onclick="exportToPDF()" style="background: #1e293b; color: white; border: 1px solid rgba(255,255,255,0.1); padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;">
-            Télécharger le Devis PDF 📄
-        </button>
         <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;">
             Commander via WhatsApp 💬
         </button>
@@ -269,98 +247,30 @@
     </div>
   </section>
 
-  <!-- 4. Blog Section (الـ 10 مقالات كاملة بالفرنسية) -->
+  <!-- 4. Blog Section -->
   <section class="container" id="blog">
-    <h2 class="section-title"><span>Blog & Articles Techniques (10 Articles)</span></h2>
+    <h2 class="section-title"><span data-i18n="blog_title">Blog & Articles Techniques</span></h2>
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      
       <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
         <span style="color: var(--gold-primary); font-size: 0.8rem;">19 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">1. L'importance du Web Full Stack en France</h3>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">L'importance du Web Full Stack en France</h3>
         <p style="color: var(--text-muted); font-size: 0.85rem;">Comment l'alliance du développement web et de l'artisanat renforce votre visibilité.</p>
       </div>
-
       <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
         <span style="color: var(--gold-primary); font-size: 0.8rem;">18 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">2. Rénovation Intérieure en Île-de-France</h3>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">Rénovation Intérieure en Île-de-France</h3>
         <p style="color: var(--text-muted); font-size: 0.85rem;">Les meilleures pratiques pour réussir vos travaux de plâtrerie et cloisons sèches.</p>
       </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">17 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">3. Guide du Carrelage Moderne</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Techniques de pose de carrelage 30x60 et dalles en béton pour terrasses.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">16 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">4. Optimisation SEO pour Artisans</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Pourquoi chaque artisan en bâtiment en France a besoin d'un site web performant.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">15 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">5. Peinture et Finitions Haut de Gamme</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Les étapes clés pour obtenir des murs parfaits lors de la rénovation d'un logement.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">14 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">6. Applications Web Sur Mesure</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Développement de solutions interactives avec JavaScript, Node.js et Vercel.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">13 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">7. Gestion de Chantiers Numérique</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Comment utiliser des applications web pour suivre l'avancement des travaux en direct.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">12 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">8. Isolation et Plâtrerie (Plaquiste)</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Améliorer la performance énergétique de votre habitat grâce à une isolation moderne.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">11 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">9. Devis en Ligne et Transparence</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">L'avantage d'intégrer des simulateurs de devis interactifs sur les sites d'artisans.</p>
-      </div>
-
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">10 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">10. L'Avenir du Bâtiment Connecté</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Fusionner l'expertise manuelle du bâtiment et les technologies web de pointe.</p>
-      </div>
-
     </div>
   </section>
 
   <!-- 5. About Section -->
   <section class="container" id="about">
-    <h2 class="section-title">À Propos de <span>l'Ingénieur Tarek Khorshed</span></h2>
-    <div style="background: var(--bg-card); border: 1.5px solid var(--border-glass); border-radius: 20px; padding: 40px; box-shadow: var(--shadow-luxury); text-align: center; max-width: 900px; margin: 0 auto;">
-      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9; margin-bottom: 25px;">
-        Bienvenue sur la plateforme officielle de l'ingénieur <strong style="color: var(--gold-primary);">Ingénieur Tarek Khorshed (Tarek.Dev)</strong>. Spécialisé en ingénierie de développement web Full Stack et en travaux de rénovation et finition du bâtiment en France (Plaquiste, Carreleur, Peintre). Notre engagement : offrir la plus haute précision et qualité, que ce soit en ligne ou sur les chantiers.
+    <h2 class="section-title"><span data-i18n="about_title">À Propos de l'Ingénieur Tarek Khorshed</span></h2>
+    <div style="background: var(--bg-card); border: 1.5px solid var(--border-glass); border-radius: 20px; padding: 40px; text-align: center; max-width: 900px; margin: 0 auto;">
+      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.9;" data-i18n="about_text">
+        Bienvenue sur la plateforme officielle de l'ingénieur Tarek Khorshed (Tarek.Dev). Spécialisé en ingénierie de développement web Full Stack et en travaux de rénovation et finition du bâtiment en France.
       </p>
-      <div style="display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; margin-top: 30px;">
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-code" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Full Stack Web</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Interfaces modernes, architectures robustes et bases de données.</p>
-        </div>
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-hammer" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Travaux de Bâtiment</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Carrelage, plâtrerie (plaquiste) et peinture soignée en France.</p>
-        </div>
-        <div style="background: var(--bg-secondary); padding: 20px; border-radius: 14px; border: 1px solid var(--border-glass); flex: 1; min-width: 220px;">
-          <i class="fa-solid fa-shield-halved" style="color: var(--gold-primary); font-size: 1.8rem; margin-bottom: 10px;"></i>
-          <h4 style="color: var(--text-main); font-size: 1.05rem; margin-bottom: 5px;">Sécurité & Fiabilité</h4>
-          <p style="font-size: 0.85rem; color: var(--text-muted);">Protection et performance optimale garanties sur tous les projets.</p>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -369,10 +279,7 @@
     <h2 class="section-title"><span>Outils Interactifs (APIs en Direct)</span></h2>
     <div class="widgets-wrapper" style="display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
       <div class="rates-widget-card" style="background: var(--bg-card); padding: 25px; border-radius: 12px; border: 1px solid var(--border-glass); flex: 1; min-width: 300px;">
-        <div class="rates-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-          <h3 style="color: var(--text-main); font-size: 1.1rem;"><i class="fa-solid fa-calculator"></i> Convertisseur de Devises</h3>
-          <span class="live-badge" style="color: #22c55e; font-size: 0.85rem;">En direct 🔴</span>
-        </div>
+        <h3 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 15px;"><i class="fa-solid fa-calculator"></i> Convertisseur de Devises</h3>
         <div class="converter-box">
           <div class="currency-row" style="display: flex; gap: 10px; margin-bottom: 10px;">
             <input type="number" id="fromAmount" value="1" oninput="convertCurrencyLive()" style="flex: 1; padding: 10px; border-radius: 6px; border: 1px solid var(--border-color); background: var(--bg-secondary); color: var(--text-main);" />
@@ -395,88 +302,241 @@
 
   <!-- Digital Store Section -->
   <section id="digital-store" style="background: #0f172a; color: #fff; padding: 50px 20px; border-radius: 12px; margin: 30px auto; max-width: 1200px;">
-    <div style="max-width: 1100px; margin: 0 auto;">
-        <div style="text-align: center; margin-bottom: 40px;">
-            <h2 style="color: #38bdf8; font-size: 28px; margin-bottom: 10px;">Boutique Numérique & Services</h2>
-            <p style="color: #94a3b8; font-size: 16px;">Découvrez nos modèles, scripts et services conçus pour booster votre activité.</p>
-        </div>
-
+    <div style="max-width: 1100px; margin: 0 auto; text-align: center;">
+        <h2 style="color: #38bdf8; font-size: 28px; margin-bottom: 10px;" data-i18n="store_title">Boutique Numérique & Services</h2>
+        <p style="color: #94a3b8; font-size: 16px; margin-bottom: 30px;" data-i18n="store_desc">Découvrez nos modèles, scripts et services conçus pour booster votre activité.</p>
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">Modèle de Portfolio Web</h3>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">Template responsive moderne avec multilingue et mode sombre.</p>
-                </div>
-                <div>
-                    <span style="color: #38bdf8; font-size: 22px; font-weight: bold; display: block; margin-bottom: 15px;">€29</span>
-                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=Je%20souhaite%20acheter%20le%20template%20de%20portfolio" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">Acheter</a>
-                </div>
-            </div>
-
-            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; display: flex; flex-direction: column; justify-content: space-between;">
-                <div>
-                    <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">Script Simulateur de Devis</h3>
-                    <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">Outil interactif de calcul de coûts connecté à WhatsApp et PDF.</p>
-                </div>
-                <div>
-                    <span style="color: #38bdf8; font-size: 22px; font-weight: bold; display: block; margin-bottom: 15px;">€19</span>
-                    <a href="https://api.whatsapp.com/send?phone=33749408535&text=Je%20souhaite%20acheter%20le%20script%20simulateur" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">Acheter</a>
-                </div>
+            <div style="background: #1e293b; border: 1px solid #334155; border-radius: 10px; padding: 20px; text-align: left;">
+                <h3 style="color: #f8fafc; font-size: 20px; margin-bottom: 10px;">Modèle de Portfolio Web</h3>
+                <p style="color: #94a3b8; font-size: 14px; margin-bottom: 15px;">Template responsive moderne avec multilingue et mode sombre.</p>
+                <span style="color: #38bdf8; font-size: 22px; font-weight: bold; display: block; margin-bottom: 15px;">€29</span>
+                <a href="https://api.whatsapp.com/send?phone=33749408535&text=Je%20souhaite%20acheter%20le%20template" target="_blank" style="background: #38bdf8; color: #0f172a; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; display: block; text-align: center;">Acheter</a>
             </div>
         </div>
     </div>
   </section>
 
-  <!-- 6. Contact & Social Media Section -->
+  <!-- 6. Contact Section -->
   <section class="container" id="contact" style="padding: 60px 20px; text-align: center;">
-    <h2 class="section-title">Contactez <span>Nous</span></h2>
-    <p style="color: var(--text-muted); margin-bottom: 30px;">Discutons de votre projet web ou de vos travaux de rénovation et bâtiment en France.</p>
-    
+    <h2 class="section-title"><span data-i18n="contact_title">Contactez Nous</span></h2>
+    <p style="color: var(--text-muted); margin-bottom: 30px;" data-i18n="contact_desc">Discutons de votre projet web ou de vos travaux de rénovation et bâtiment en France.</p>
     <div style="display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; margin-bottom: 30px;">
-        <a href="https://api.whatsapp.com/send?phone=33749408535" target="_blank" style="background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-whatsapp"></i> WhatsApp
-        </a>
-        <a href="mailto:contact@tarekkorshed.com" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-glass); padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-envelope"></i> Email
-        </a>
-        <a href="https://facebook.com/tarekkorshed" target="_blank" style="background: #1877F2; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-facebook"></i> Facebook
-        </a>
-        <a href="https://instagram.com/tarekkorshed" target="_blank" style="background: radial-gradient(circle at 30% 107%, #fdf497 0%, #df5950 45%, #c62368 60%, #6352ce 90%); color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-instagram"></i> Instagram
-        </a>
-        <a href="https://tiktok.com/@tarekkorshed" target="_blank" style="background: #000000; color: white; border: 1px solid #333; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-tiktok"></i> TikTok
-        </a>
-        <a href="https://twitter.com/tarekkorshed" target="_blank" style="background: #000000; color: white; border: 1px solid #333; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-x-twitter"></i> Twitter (X)
-        </a>
-        <a href="https://github.com/abedtareq364-cmyk" target="_blank" style="background: #24292e; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-brands fa-github"></i> GitHub
-        </a>
-        <a href="https://www.malt.fr/profile/tareqabed" target="_blank" style="background: #fc5757; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; display: flex; align-items: center; gap: 8px;">
-            <i class="fa-solid fa-briefcase"></i> Malt
-        </a>
+        <a href="https://api.whatsapp.com/send?phone=33749408535" target="_blank" style="background: #25D366; color: white; padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">WhatsApp</a>
+        <a href="mailto:contact@tarekkorshed.com" style="background: var(--bg-card); color: var(--text-main); border: 1px solid var(--border-glass); padding: 12px 20px; border-radius: 8px; text-decoration: none; font-weight: bold;">Email</a>
     </div>
   </section>
 
   <!-- Footer -->
   <footer style="background: #0b0f19; color: #94a3b8; padding: 30px 20px; text-align: center; border-top: 1px solid #1e293b;">
-    <p>Tous droits réservés © 2026 Ingénieur Tarek Khorshed</p>
-    <p style="font-size: 13px; margin-top: 5px;">Argenteuil, France | Full Stack Developer & Bâtiment Services</p>
+    <p data-i18n="footer_rights">Tous droits réservés © 2026 Ingénieur Tarek Khorshed</p>
+    <p style="font-size: 13px; margin-top: 5px;" data-i18n="footer_location">Argenteuil, France | Full Stack Developer & Bâtiment Services</p>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Scripts & 5 Languages Dictionary -->
   <script>
+    const translations = {
+      fr: {
+        nav_home: "Accueil",
+        nav_services: "Services",
+        nav_portfolio: "Portfolio",
+        nav_calculator: "Devis",
+        nav_blog: "Blog",
+        nav_about: "À Propos",
+        nav_tools: "Outils",
+        nav_store: "Boutique",
+        nav_contact: "Contact",
+        hero_badge: "💻 Full Stack Developer | Développeur & Bâtiment France",
+        hero_title: "Ingénieur Tarek Khorshed",
+        hero_desc: "Développeur Full Stack & Expert en Travaux de Bâtiment en France (Plaquiste, Carreleur, Peintre). Solutions web professionnelles et rénovation de haute qualité en Île-de-France.",
+        btn_whatsapp: "Contact WhatsApp",
+        btn_consultation: "Consultation Gratuite 📅",
+        services_main_title: "Nos Services",
+        services_sub_title: "Développement & Bâtiment en France",
+        service_1_title: "Développement Web Full Stack",
+        service_1_desc: "Création de sites web, applications sur mesure et plateformes e-commerce performantes.",
+        service_2_title: "Métiers du Bâtiment & Rénovation",
+        service_2_desc: "Expertise professionnelle en pose de carrelage, plâtrerie et peinture intérieure en Île-de-France.",
+        portfolio_title: "Portfolio & Nouveaux Projets",
+        project_new_tag: "Nouveau Projet",
+        project_new_desc: "Application web interactive pour la gestion des tâches, suivi de chantiers et projets de développement.",
+        calc_title: "Simulateur de Devis & Estimation en Ligne",
+        blog_title: "Blog & Articles Techniques",
+        about_title: "À Propos de l'Ingénieur Tarek Khorshed",
+        about_text: "Bienvenue sur la plateforme officielle de l'ingénieur Tarek Khorshed (Tarek.Dev). Spécialisé en ingénierie de développement web Full Stack et en travaux de rénovation et finition du bâtiment en France.",
+        store_title: "Boutique Numérique & Services",
+        store_desc: "Découvrez nos modèles, scripts et services conçus pour booster votre activité.",
+        contact_title: "Contactez Nous",
+        contact_desc: "Discutons de votre projet web ou de vos travaux de rénovation et bâtiment en France.",
+        footer_rights: "Tous droits réservés © 2026 Ingénieur Tarek Khorshed",
+        footer_location: "Argenteuil, France | Full Stack Developer & Bâtiment Services"
+      },
+      en: {
+        nav_home: "Home",
+        nav_services: "Services",
+        nav_portfolio: "Portfolio",
+        nav_calculator: "Quote",
+        nav_blog: "Blog",
+        nav_about: "About",
+        nav_tools: "Tools",
+        nav_store: "Store",
+        nav_contact: "Contact",
+        hero_badge: "💻 Full Stack Developer | Web & Construction France",
+        hero_title: "Engineer Tarek Khorshed",
+        hero_desc: "Full Stack Developer & Construction Expert in France (Drywaller, Tiler, Painter). Professional web solutions and high-quality renovation in Île-de-France.",
+        btn_whatsapp: "WhatsApp Contact",
+        btn_consultation: "Free Consultation 📅",
+        services_main_title: "Our Services",
+        services_sub_title: "Development & Construction in France",
+        service_1_title: "Full Stack Web Development",
+        service_1_desc: "Creation of websites, custom applications, and high-performance e-commerce platforms.",
+        service_2_title: "Construction & Renovation",
+        service_2_desc: "Professional expertise in tiling, drywalling, and interior painting in Île-de-France.",
+        portfolio_title: "Portfolio & New Projects",
+        project_new_tag: "New Project",
+        project_new_desc: "Interactive web application for task management, site tracking, and development projects.",
+        calc_title: "Online Quote & Estimation Simulator",
+        blog_title: "Blog & Technical Articles",
+        about_title: "About Engineer Tarek Khorshed",
+        about_text: "Welcome to the official platform of Engineer Tarek Khorshed (Tarek.Dev). Specialized in Full Stack web development engineering and building renovation and finishing work in France.",
+        store_title: "Digital Store & Services",
+        store_desc: "Discover our templates, scripts, and services designed to boost your activity.",
+        contact_title: "Contact Us",
+        contact_desc: "Let's discuss your web project or your renovation and construction work in France.",
+        footer_rights: "All rights reserved © 2026 Engineer Tarek Khorshed",
+        footer_location: "Argenteuil, France | Full Stack Developer & Construction Services"
+      },
+      ar: {
+        nav_home: "الرئيسية",
+        nav_services: "الخدمات",
+        nav_portfolio: "الأعمال",
+        nav_calculator: "حاسبة الأسعار",
+        nav_blog: "المدونة",
+        nav_about: "من نحن",
+        nav_tools: "الأدوات",
+        nav_store: "المتجر",
+        nav_contact: "اتصل بنا",
+        hero_badge: "💻 مطور Full Stack | تطوير ومقاولات فرنسا",
+        hero_title: "المهندس طارق خورشيد",
+        hero_desc: "مطور ويب شامل وخبير أعمال البناء والتشطيبات في فرنسا (جبسون بورد، سيراميك، دهانات). حلول برمجية واحترافية وتجديدات عالية الجودة في إيل دو فرانس.",
+        btn_whatsapp: "تواصل عبر واتساب",
+        btn_consultation: "استشارة مجانية 📅",
+        services_main_title: "خدماتنا",
+        services_sub_title: "التطوير والبناء في فرنسا",
+        service_1_title: "تطوير الويب الشامل (Full Stack)",
+        service_1_desc: "إنشاء مواقع الويب، التطبيقات المخصصة، ومنصات التجارة الإلكترونية عالية الأداء.",
+        service_2_title: "أعمال البناء والتشطيبات",
+        service_2_desc: "خبرة مهنية في تركيب السيراميك، أعمال الجبس (Plaquiste)، والدهانات الداخلية في فرنسا.",
+        portfolio_title: "معرض الأعمال والمشاريع الجديدة",
+        project_new_tag: "مشروع جديد",
+        project_new_desc: "تطبيق ويب تفاعلي لإدارة المهام ومتابعة مواقع البناء ومشاريع التطوير.",
+        calc_title: "حاسبة الأسعار والتقدير الفوري",
+        blog_title: "المدونة والمقالات التقنية",
+        about_title: "عن المهندس طارق خورشيد",
+        about_text: "مرحباً بكم على المنصة الرسمية للمهندس طارق خورشيد (Tarek.Dev). متخصص في هندسة تطوير الويب الشامل وأعمال تجديد وتشطيب المباني في فرنسا.",
+        store_title: "المتجر الرقمي والخدمات",
+        store_desc: "اكتشف قوالبنا، نصوص برمجية وخدمات مصممة لتعزيز نشاطك.",
+        contact_title: "اتصل بنا",
+        contact_desc: "دعنا نناقش مشروعك البرمجي أو أعمال التجديد والبناء الخاصة بك في فرنسا.",
+        footer_rights: "جميع الحقوق محفوظة © 2026 المهندس طارق خورشيد",
+        footer_location: "أرجنتوي، فرنسا | خدمات تطوير الويب والبناء"
+      },
+      es: {
+        nav_home: "Inicio",
+        nav_services: "Servicios",
+        nav_portfolio: "Portafolio",
+        nav_calculator: "Presupuesto",
+        nav_blog: "Blog",
+        nav_about: "Sobre mí",
+        nav_tools: "Herramientas",
+        nav_store: "Tienda",
+        nav_contact: "Contacto",
+        hero_badge: "💻 Full Stack Developer | Desarrollo y Construcción Francia",
+        hero_title: "Ingeniero Tarek Khorshed",
+        hero_desc: "Desarrollador Full Stack y experto en construcción y renovación en Francia (Yesaire, Alicatador, Pintor). Soluciones web profesionales en Île-de-France.",
+        btn_whatsapp: "Contacto WhatsApp",
+        btn_consultation: "Consulta Gratuita 📅",
+        services_main_title: "Nuestros Servicios",
+        services_sub_title: "Desarrollo y Construcción en Francia",
+        service_1_title: "Desarrollo Web Full Stack",
+        service_1_desc: "Creación de sitios web, aplicaciones a medida y plataformas de comercio electrónico.",
+        service_2_title: "Construcción y Renovación",
+        service_2_desc: "Experiencia profesional en alicatado, tabiquería de yeso y pintura de interiores en Île-de-France.",
+        portfolio_title: "Portafolio y Nuevos Proyectos",
+        project_new_tag: "Nuevo Proyecto",
+        project_new_desc: "Aplicación web interactiva para gestión de tareas y seguimiento de obras.",
+        calc_title: "Simulador de Presupuesto en Línea",
+        blog_title: "Blog y Artículos Técnicos",
+        about_title: "Acerca del Ingeniero Tarek Khorshed",
+        about_text: "Bienvenido a la plataforma oficial del ingeniero Tarek Khorshed (Tarek.Dev). Especializado en ingeniería de desarrollo web Full Stack y trabajos de renovación y acabado en Francia.",
+        store_title: "Tienda Digital y Servicios",
+        store_desc: "Descubra nuestras plantillas, scripts y servicios diseñados para impulsar su actividad.",
+        contact_title: "Contáctenos",
+        contact_desc: "Hablemos sobre su proyecto web o sus trabajos de renovación en Francia.",
+        footer_rights: "Todos los derechos reservados © 2026 Ingeniero Tarek Khorshed",
+        footer_location: "Argenteuil, Francia | Servicios de Desarrollo Web y Construcción"
+      },
+      de: {
+        nav_home: "Startseite",
+        nav_services: "Dienstleistungen",
+        nav_portfolio: "Portfolio",
+        nav_calculator: "Angebot",
+        nav_blog: "Blog",
+        nav_about: "Über uns",
+        nav_tools: "Werkzeuge",
+        nav_store: "Shop",
+        nav_contact: "Kontakt",
+        hero_badge: "💻 Full Stack Developer | Web & Bauwesen Frankreich",
+        hero_title: "Ingenieur Tarek Khorshed",
+        hero_desc: "Full Stack Entwickler & Experte für Renovierungsarbeiten in Frankreich (Trockenbauer, Fliesenleger, Maler). Professionelle Web- und Baudienstleistungen.",
+        btn_whatsapp: "WhatsApp Kontakt",
+        btn_consultation: "Kostenlose Beratung 📅",
+        services_main_title: "Unsere Dienstleistungen",
+        services_sub_title: "Entwicklung & Bauwesen in Frankreich",
+        service_1_title: "Full Stack Webentwicklung",
+        service_1_desc: "Erstellung von Websites, maßgeschneiderten Apps und E-Commerce-Plattformen.",
+        service_2_title: "Bauwesen & Renovierung",
+        service_2_desc: "Professionelle Expertise in Fliesenlegen, Trockenbau und Innenanstrich in Île-de-France.",
+        portfolio_title: "Portfolio & Neue Projekte",
+        project_new_tag: "Neues Projekt",
+        project_new_desc: "Interaktive Web-App zur Aufgabenverwaltung und Baustellenverfolgung.",
+        calc_title: "Online-Angebot & Schätzungsrechner",
+        blog_title: "Blog & Technische Artikel",
+        about_title: "Über Ingenieur Tarek Khorshed",
+        about_text: "Willkommen auf der offiziellen Plattform von Ingenieur Tarek Khorshed (Tarek.Dev). Spezialisiert auf Full Stack Webentwicklung und Renovierungsarbeiten in Frankreich.",
+        store_title: "Digitaler Shop & Services",
+        store_desc: "Entdecken Sie unsere Vorlagen, Skripte und Dienstleistungen zur Förderung Ihrer Aktivität.",
+        contact_title: "Kontaktieren Sie uns",
+        contact_desc: "Lassen Sie uns über Ihr Webprojekt oder Ihre Renovierungsarbeiten in Frankreich sprechen.",
+        footer_rights: "Alle Rechte vorbehalten © 2026 Ingenieur Tarek Khorshed",
+        footer_location: "Argenteuil, Frankreich | Full Stack Entwickler & Baudienstleistungen"
+      }
+    };
+
+    function changeLanguage(lang) {
+      const elements = document.querySelectorAll('[data-i18n]');
+      elements.forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+          el.innerText = translations[lang][key];
+        }
+      });
+
+      const htmlRoot = document.getElementById('htmlRoot');
+      htmlRoot.setAttribute('lang', lang);
+      if (lang === 'ar') {
+        htmlRoot.setAttribute('dir', 'rtl');
+        document.body.style.fontFamily = "'Cairo', sans-serif";
+      } else {
+        htmlRoot.setAttribute('dir', 'ltr');
+        document.body.style.fontFamily = "inherit";
+      }
+    }
+
     function toggleTheme() {
         document.body.classList.toggle('light-theme');
         const isLight = document.body.classList.contains('light-theme');
         const icon = document.querySelector('#themeToggleBtn i');
-        if (isLight) {
-            icon.className = 'fa-solid fa-sun';
-        } else {
-            icon.className = 'fa-solid fa-moon';
-        }
+        icon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
     }
 
     function toggleCalculatorType() {
@@ -497,51 +557,27 @@
     function calculatePrice() {
         const category = document.getElementById('serviceCategory').value;
         let total = 0;
-
         if (category === 'web') {
-            const siteType = parseFloat(document.getElementById('siteType').value) || 0;
-            const langMultiplier = parseFloat(document.getElementById('langCount').value) || 1;
-            total = siteType * langMultiplier;
+            total = parseFloat(document.getElementById('siteType').value) || 150;
         } else {
-            const buildingType = parseFloat(document.getElementById('buildingType').value) || 0;
-            const surfaceArea = parseFloat(document.getElementById('surfaceArea').value) || 0;
-            total = buildingType * surfaceArea;
+            const bType = parseFloat(document.getElementById('buildingType').value) || 35;
+            const area = parseFloat(document.getElementById('surfaceArea').value) || 30;
+            total = bType * area;
         }
-
         document.getElementById('totalPrice').innerText = Math.round(total) + '€';
     }
 
     function sendWhatsAppQuote() {
-        const category = document.getElementById('serviceCategory').value;
         const price = document.getElementById('totalPrice').innerText;
-        let details = "";
-
-        if (category === 'web') {
-            const siteTypeElem = document.getElementById('siteType');
-            details = siteTypeElem.options[siteTypeElem.selectedIndex].text;
-        } else {
-            const buildingElem = document.getElementById('buildingType');
-            const area = document.getElementById('surfaceArea').value;
-            details = `${buildingElem.options[buildingElem.selectedIndex].text} - Surface : ${area}m²`;
-        }
-
-        const message = `Bonjour Ingénieur Tarek, je souhaite commander le devis suivant :\n- Prestation : ${details}\n- Estimation : ${price}`;
-        const url = `https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(message)}`;
-        window.open(url, '_blank');
-    }
-
-    function exportToPDF() {
-        alert("Génération et téléchargement du devis PDF en cours...");
+        const message = `Bonjour Ingénieur Tarek, je souhaite commander un devis estimé à ${price}.`;
+        window.open(`https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(message)}`, '_blank');
     }
 
     function convertCurrencyLive() {
         const amount = parseFloat(document.getElementById('fromAmount').value) || 0;
         const from = document.getElementById('fromCurrency').value;
         const to = document.getElementById('toCurrency').value;
-        let rate = 1.08; 
-        if(from === to) rate = 1;
-        else if(from === 'USD' && to === 'EUR') rate = 0.93;
-        
+        let rate = (from === to) ? 1 : (from === 'USD' && to === 'EUR' ? 0.93 : 1.08);
         document.getElementById('toAmount').value = (amount * rate).toFixed(2);
     }
 
