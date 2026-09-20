@@ -875,4 +875,63 @@ function sendWhatsAppQuote() {
     welcome_desc: "Especializado en desarrollo web, pladur y pintura",
     change_lang: "Seleccionar idioma"
   }
-};
+};// دالة إرسال رسائل نموذج التواصل إلى سيرفر Tarek.Dev
+async function sendContactForm(event) {
+    event.preventDefault(); // منع الصفحة من إعادة التحميل التلقائي
+
+    // جلب عناصر الفورم والحصول على القيم المكتوبة داخله
+    const nameInput = document.querySelector('input[name="name"]');
+    const emailInput = document.querySelector('input[name="email"]');
+    const messageInput = document.querySelector('textarea[name="message"]');
+    const submitButton = event.target.querySelector('button[type="submit"]');
+
+    // تجهيز البيانات في كائن (Object) ليرسل كـ JSON
+    const formData = {
+        name: nameInput.value.trim(),
+        email: emailInput.value.trim(),
+        message: messageInput.value.trim()
+    };
+
+    // تغيير نص الزر أثناء الإرسال كحركة تفاعلية مع المستخدم
+    if (submitButton) submitButton.innerText = "جاري الإرسال... ⏳";
+
+    try {
+        // إرسال البيانات الفعلي للسيرفر باستخدام الـ fetch API
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(formData) // تحويل البيانات إلى نص برميجي مدعوم
+        });
+
+        const result = await response.json();
+
+        if (response.ok && result.success) {
+            // في حال النجاح: إظهار رسالة تنبيه للمستخدم وتفريغ الحقول
+            alert(result.message || 'تم إرسال رسالتك بنجاح! 🎯');
+            nameInput.value = '';
+            emailInput.value = '';
+            messageInput.value = '';
+        } else {
+            // في حال وجود خطأ في البيانات مدخلة من المستخدم
+            alert(`⚠️ خطأ: ${result.error}`);
+        }
+
+    } catch (error) {
+        // في حال فشل الاتصال بالسيرفر تماماً
+        console.error('❌ حدث خطأ أثناء عملية الـ fetch:', error);
+        alert('🔴 تعذر الاتصال بالسيرفر، يرجى التحقق من تشغيل السيرفر المحلي.');
+    } finally {
+        // إعادة نص الزر إلى وضعه الطبيعي بعد انتهاء العملية
+        if (submitButton) submitButton.innerText = "إرسال الرسالة";
+    }
+}
+
+// ربط الدالة بالفورم عند الضغط على زر الإرسال (Submit)
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.querySelector('form[action="/api/contact"]') || document.querySelector('#contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', sendContactForm);
+    }
+});

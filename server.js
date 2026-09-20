@@ -1,10 +1,10 @@
 /* ==========================================================================
-   Tarek.Dev - Express Server & API Engine (server.js - Full Stack Core Updated)
+   Tarek.Dev - Express Server & MongoDB API Engine (Full Stack Core Updated)
    ========================================================================== */
 
 const express = require('express');
 const cors = require('cors');
-const db = require('./db'); // استدعاء ملف الاتصال بقاعدة البيانات
+const connectDB = require('./db'); // استدعاء ملف الاتصال بـ MongoDB السحابية
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -22,12 +22,12 @@ app.get('/', (req, res) => {
   res.json({
     status: 'online',
     developer: 'Tarek Khorshed',
-    message: 'سيرفر منصة Tarek.Dev يعمل بانتظام وبكفاءة عالية 🚀'
+    message: 'سيرفر منصة Tarek.Dev يعمل بانتظام وبكفاءة عالية مع MongoDB 🚀'
   });
 });
 
 // API استقبال وحفظ رسائل نموذج التواصل (Contact Form API)
-app.post('/api/contact', (req, res) => {
+app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
   // التحقق من وجود الحقول الأساسية
@@ -38,42 +38,53 @@ app.post('/api/contact', (req, res) => {
     });
   }
 
-  // استعلام الإدخال في قاعدة البيانات
-  const query = 'INSERT INTO messages (name, email, message) VALUES (?, ?, ?)';
-  
-  db.query(query, [name, email, message], (err, result) => {
-    if (err) {
-      console.error('❌ خطأ أثناء تخزين البيانات في القاعدة:', err);
-      return res.status(500).json({ 
-        success: false, 
-        error: 'حدث خطأ داخلي في الخادم أثناء حفظ الرسالة.' 
-      });
-    }
+  try {
+    // الاتصال بقاعدة البيانات وجلب الكائن
+    const database = await connectDB();
+    const collection = database.collection('messages');
+
+    // تجهيز الوثيقة (Document) لحفظها في MongoDB السحابية
+    const newMessage = {
+      name,
+      email,
+      message,
+      created_at: new Date() // إضافة التوقيت تلقائياً
+    };
+
+    const result = await collection.insertOne(newMessage);
 
     res.status(201).json({
       success: true,
-      message: 'تم حفظ الرسالة في قاعدة البيانات بنجاح 🎯',
-      insertedId: result.insertId
+      message: 'تم حفظ الرسالة في قاعدة البيانات السحابية بنجاح 🎯',
+      insertedId: result.insertedId // معرف الوثيقة الفريد في MongoDB
     });
-  });
+  } catch (err) {
+    console.error('❌ خطأ أثناء تخزين البيانات في القاعدة السحابية:', err);
+    res.status(500).json({ 
+      success: false, 
+      error: 'حدث خطأ داخلي في الخادم أثناء حفظ الرسالة.' 
+    });
+  }
 });
 
 // API لجلب كل الرسائل المخزنة لوحة التحكم (Admin API)
-app.get('/api/messages', (req, res) => {
-  const query = 'SELECT * FROM messages ORDER BY created_at DESC';
-  
-  db.query(query, (err, results) => {
-    if (err) {
-      console.error('❌ خطأ أثناء جلب الرسائل:', err);
-      return res.status(500).json({ success: false, error: 'تعذر جلب الرسائل من قاعدة البيانات.' });
-    }
+app.get('/api/messages', async (req, res) => {
+  try {
+    const database = await connectDB();
+    const collection = database.collection('messages');
+
+    // جلب الرسائل وترتيبها من الأحدث للأقدم
+    const results = await collection.find({}).sort({ created_at: -1 }).toArray();
     
     res.status(200).json({
       success: true,
       count: results.length,
       messages: results
     });
-  });
+  } catch (err) {
+    console.error('❌ خطأ أثناء جلب الرسائل من السحابة:', err);
+    res.status(500).json({ success: false, error: 'تعذر جلب الرسائل من قاعدة البيانات.' });
+  }
 });
 
 // تشغيل السيرفر على المنفذ المحدد
