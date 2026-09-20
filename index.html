@@ -82,6 +82,22 @@
         font-weight: bold;
         cursor: pointer;
       }
+      .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+      }
+      .blog-card {
+        background: var(--bg-card);
+        padding: 25px;
+        border-radius: 12px;
+        border: 1.5px solid var(--border-glass);
+        transition: transform 0.3s ease;
+      }
+      .blog-card:hover {
+        transform: translateY(-5px);
+      }
     </style>
   </head>
   <body>
@@ -108,7 +124,6 @@
       </ul>
 
       <div class="header-controls" style="display: flex; align-items: center; gap: 10px;">
-        <!-- Language Switcher (5 Languages) -->
         <select id="langSwitcher" class="lang-select" onchange="changeLanguage(this.value)">
           <option value="fr" selected>🇫🇷 FR</option>
           <option value="en">🇬🇧 EN</option>
@@ -168,11 +183,10 @@
     </div>
   </section>
 
-  <!-- 2. Portfolio Section (مع المشروع الجديد) -->
+  <!-- 2. Portfolio Section -->
   <section class="container" id="portfolio">
     <h2 class="section-title"><span data-i18n="portfolio_title">Portfolio & Nouveaux Projets</span></h2>
     <div class="portfolio-grid">
-      <!-- Fullstack Project Management App -->
       <div class="portfolio-item">
         <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&q=80" alt="Gestion de projets" class="portfolio-thumb" />
         <div class="portfolio-info">
@@ -239,7 +253,7 @@
         <div class="price-tag" id="totalPrice" style="font-size: 2.2rem; color: var(--gold-primary); font-weight: bold; margin: 10px 0;">150€</div>
       </div>
 
-      <div class="calculator-actions" style="margin-top: 20px; display: flex; flex-direction: column; gap: 12px;">
+      <div class="calculator-actions" style="margin-top: 20px;">
         <button id="sendWhatsAppBtn" onclick="sendWhatsAppQuote()" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white; border: none; padding: 14px 20px; border-radius: 12px; font-weight: bold; cursor: pointer; width: 100%; transition: 0.3s;">
             Commander via WhatsApp 💬
         </button>
@@ -247,19 +261,59 @@
     </div>
   </section>
 
-  <!-- 4. Blog Section -->
+  <!-- 4. Blog & 10 Technical Articles Section -->
   <section class="container" id="blog">
     <h2 class="section-title"><span data-i18n="blog_title">Blog & Articles Techniques</span></h2>
-    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
-        <span style="color: var(--gold-primary); font-size: 0.8rem;">19 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">L'importance du Web Full Stack en France</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Comment l'alliance du développement web et de l'artisanat renforce votre visibilité.</p>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">20 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">1. L'importance du Web Full Stack en France</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Comment l'alliance du développement web et de l'artisanat renforce votre visibilité sur le marché français.</p>
       </div>
-      <div style="background: var(--bg-card); padding: 20px; border-radius: 12px; border: 1.5px solid var(--border-glass);">
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">19 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">2. Rénovation Intérieure en Île-de-France</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Les meilleures pratiques pour réussir vos travaux de plâtrerie, cloisons sèches et faux plafonds.</p>
+      </div>
+      <div class="blog-card">
         <span style="color: var(--gold-primary); font-size: 0.8rem;">18 Sep 2026</span>
-        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">Rénovation Intérieure en Île-de-France</h3>
-        <p style="color: var(--text-muted); font-size: 0.85rem;">Les meilleures pratiques pour réussir vos travaux de plâtrerie et cloisons sèches.</p>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">3. Optimisation SEO et Référencement Local</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Pourquoi chaque artisan et développeur a besoin d'une fiche Google My Business et d'un site rapide.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">17 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">4. Pose de Carrelage et Gestion des Pentes</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Techniques avancées pour réussir l'évacuation des eaux sur les terrasses et dalles en béton.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">16 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">5. Architecture Moderne Front-End avec Node.js</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Mise en place d'un environnement de travail propre et performant sous Vercel et Render.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">15 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">6. Peinture et Finitions Haut de Gamme</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Les secrets d'un ponçage parfait et d'une application lisse sans traces pour un rendu professionnel.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">14 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">7. Sécurité et Performance Web</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Sécuriser ses formulaires et accélérer le chargement des images sur les applications mobiles.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">13 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">8. L'impact de l'IA dans le Code et le Design</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Comment utiliser les outils d'intelligence artificielle pour accélérer le développement de projets.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">12 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">9. Gestion de Chantiers et Planification</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Méthodes agiles appliquées au secteur du bâtiment pour respecter les délais de livraison.</p>
+      </div>
+      <div class="blog-card">
+        <span style="color: var(--gold-primary); font-size: 0.8rem;">11 Sep 2026</span>
+        <h3 style="color: var(--text-main); margin: 8px 0; font-size: 1.1rem;">10. L'Avenir du Digital et du Bâtiment Connecté</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem;">Vision d'avenir sur la fusion des compétences technologiques et manuelles en Europe.</p>
       </div>
     </div>
   </section>
@@ -332,7 +386,7 @@
     <p style="font-size: 13px; margin-top: 5px;" data-i18n="footer_location">Argenteuil, France | Full Stack Developer & Bâtiment Services</p>
   </footer>
 
-  <!-- Scripts & 5 Languages Dictionary -->
+  <!-- Scripts -->
   <script>
     const translations = {
       fr: {
@@ -504,11 +558,11 @@
         about_title: "Über Ingenieur Tarek Khorshed",
         about_text: "Willkommen auf der offiziellen Plattform von Ingenieur Tarek Khorshed (Tarek.Dev). Spezialisiert auf Full Stack Webentwicklung und Renovierungsarbeiten in Frankreich.",
         store_title: "Digitaler Shop & Services",
-        store_desc: "Entdecken Sie unsere Vorlagen, Skripte und Dienstleistungen zur Förderung Ihrer Aktivität.",
+        store_desc: "Entdecken Sie unsere Vorlagen, scripts und Dienstleistungen zur Förderung Ihrer Aktivität.",
         contact_title: "Kontaktieren Sie uns",
         contact_desc: "Lassen Sie uns über Ihr Webprojekt oder Ihre Renovierungsarbeiten in Frankreich sprechen.",
         footer_rights: "Alle Rechte vorbehalten © 2026 Ingenieur Tarek Khorshed",
-        footer_location: "Argenteuil, Frankreich | Full Stack Entwickler & Baudienstleistungen"
+        footer_location: "Argenteuil, France | Full Stack Entwickler & Baudienstleistungen"
       }
     };
 
@@ -532,60 +586,62 @@
       }
     }
 
-    function toggleTheme() {
-        document.body.classList.toggle('light-theme');
-        const isLight = document.body.classList.contains('light-theme');
-        const icon = document.querySelector('#themeToggleBtn i');
-        icon.className = isLight ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
-
     function toggleCalculatorType() {
-        const category = document.getElementById('serviceCategory').value;
-        const webOptions = document.getElementById('webCalcOptions');
-        const buildingOptions = document.getElementById('buildingCalcOptions');
-
-        if (category === 'web') {
-            webOptions.style.display = 'block';
-            buildingOptions.style.display = 'none';
-        } else {
-            webOptions.style.display = 'none';
-            buildingOptions.style.display = 'block';
-        }
-        calculatePrice();
+      const category = document.getElementById('serviceCategory').value;
+      const webOpts = document.getElementById('webCalcOptions');
+      const buildingOpts = document.getElementById('buildingCalcOptions');
+      if (category === 'web') {
+        webOpts.style.display = 'block';
+        buildingOpts.style.display = 'none';
+      } else {
+        webOpts.style.display = 'none';
+        buildingOpts.style.display = 'block';
+      }
+      calculatePrice();
     }
 
     function calculatePrice() {
-        const category = document.getElementById('serviceCategory').value;
-        let total = 0;
-        if (category === 'web') {
-            total = parseFloat(document.getElementById('siteType').value) || 150;
-        } else {
-            const bType = parseFloat(document.getElementById('buildingType').value) || 35;
-            const area = parseFloat(document.getElementById('surfaceArea').value) || 30;
-            total = bType * area;
-        }
-        document.getElementById('totalPrice').innerText = Math.round(total) + '€';
+      const category = document.getElementById('serviceCategory').value;
+      let total = 0;
+      if (category === 'web') {
+        const siteType = document.getElementById('siteType').value;
+        total = parseInt(siteType);
+      } else {
+        const rate = parseInt(document.getElementById('buildingType').value);
+        const area = parseInt(document.getElementById('surfaceArea').value) || 0;
+        total = rate * area;
+      }
+      document.getElementById('totalPrice').innerText = total + '€';
     }
 
     function sendWhatsAppQuote() {
-        const price = document.getElementById('totalPrice').innerText;
-        const message = `Bonjour Ingénieur Tarek, je souhaite commander un devis estimé à ${price}.`;
-        window.open(`https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(message)}`, '_blank');
+      const category = document.getElementById('serviceCategory').value;
+      let msg = "Bonjour Ingénieur Tarek, je souhaite commander : ";
+      if (category === 'web') {
+        const siteTypeVal = document.getElementById('siteType').selectedOptions[0].text;
+        msg += siteTypeVal;
+      } else {
+        const bTypeVal = document.getElementById('buildingType').selectedOptions[0].text;
+        const area = document.getElementById('surfaceArea').value;
+        msg += bTypeVal + " pour une surface de " + area + "m²";
+      }
+      const url = `https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(msg)}`;
+      window.open(url, '_blank');
     }
 
     function convertCurrencyLive() {
-        const amount = parseFloat(document.getElementById('fromAmount').value) || 0;
-        const from = document.getElementById('fromCurrency').value;
-        const to = document.getElementById('toCurrency').value;
-        let rate = (from === to) ? 1 : (from === 'USD' && to === 'EUR' ? 0.93 : 1.08);
-        document.getElementById('toAmount').value = (amount * rate).toFixed(2);
+      const amount = parseFloat(document.getElementById('fromAmount').value) || 0;
+      const from = document.getElementById('fromCurrency').value;
+      const to = document.getElementById('toCurrency').value;
+      let rate = 1.08;
+      let result = amount;
+      if (from === 'EUR' && to === 'USD') {
+        result = amount * rate;
+      } else if (from === 'USD' && to === 'EUR') {
+        result = amount / rate;
+      }
+      document.getElementById('toAmount').value = result.toFixed(2);
     }
-
-    window.onload = function() {
-        calculatePrice();
-        convertCurrencyLive();
-    };
-  </script> <form id="contact-form" action="/api/contact" method="POST">
-
+  </script>
   </body>
 </html>
