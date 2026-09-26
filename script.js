@@ -1,318 +1,287 @@
-/* ==========================================
-   Tarek Khorshed - Main JavaScript (script.js)
-   ========================================== */
+// ==========================================
+// Tarek.Dev - ملف الجافاسكريبت (script.js)
+// ==========================================
 
-// --- 1. Theme Toggle (الوضع الليلي والنهاري) ---
-function toggleTheme() {
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const themeBtnIcon = document.querySelector('#themeToggleBtn i');
-    
-    if (currentTheme === 'light') {
-        document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
-        if (themeBtnIcon) themeBtnIcon.className = 'fa-solid fa-moon';
-    } else {
-        document.documentElement.setAttribute('data-theme', 'light');
-        localStorage.setItem('theme', 'light');
-        if (themeBtnIcon) themeBtnIcon.className = 'fa-solid fa-sun';
+const translations = {
+  ar: {
+    nav_home: "الرئيسية",
+    nav_about: "من نحن",
+    nav_blog: "المدونة",
+    nav_projects: "المشاريع",
+    nav_contact: "اتصل بنا",
+    hero_title: "طارق عابد",
+    hero_desc: "مطور واجهات أمامية وصنايعي معلم متخصص في Peinture و Plaquiste و Carrelage في فرنسا.",
+    btn_consult: "استشارة مجانية",
+    btn_estimator_btn: "حاسبة الأسعار",
+    consult_title: "طلب استشارة مجانية",
+    consult_send: "إرسال الاستشارة",
+    calc_heading: "حاسبة الأسعار التقديرية",
+    calc_service_type: "اختر الخدمة أو الصنعة",
+    trouble_title: "دليل المشاكل الفنية وحلولها",
+    services_title: "خدمات مصغرة وأكواد جاهزة",
+    blog_title: "المدونة التقنية",
+    projects_title: "المشاريع والسيرفرات السحابية",
+    tools_title: "الأدوات الذكية التفاعلية",
+    calc_title: "الحاسبة السريعة",
+    weather_title: "حالة الطقس الفورية",
+    refresh_weather: "تحديث الطقس",
+    currency_title: "محول العملات",
+    convert_btn: "تحويل",
+    game_title: "اللعبة التفاعلية",
+    game_start: "اضغط هنا للبدء!",
+    game_score: "الوقت المستغرق: --",
+    contact_title: "تواصل معي"
+  },
+  fr: {
+    nav_home: "Accueil",
+    nav_about: "À propos",
+    nav_blog: "Blog",
+    nav_projects: "Projets",
+    nav_contact: "Contact",
+    hero_title: "Tarek Abed",
+    hero_desc: "Développeur Front-end et professionnel spécialisé en Peinture, Plaquiste et Carrelage en France.",
+    btn_consult: "Consultation",
+    btn_estimator_btn: "Calculateur",
+    consult_title: "Consultation gratuite",
+    consult_send: "Envoyer",
+    calc_heading: "Calculateur de prix estimatif",
+    calc_service_type: "Sélectionnez le service",
+    trouble_title: "Guide des problèmes techniques",
+    services_title: "Micro-services & Codes",
+    blog_title: "Blog Technique",
+    projects_title: "Projets & Serveurs Cloud",
+    tools_title: "Outils Intelligents",
+    calc_title: "Calculatrice Rapide",
+    weather_title: "Météo en direct",
+    refresh_weather: "Actualiser",
+    currency_title: "Convertisseur",
+    convert_btn: "Convertir",
+    game_title: "Jeu Interactif",
+    game_start: "Commencer !",
+    game_score: "Temps: --",
+    contact_title: "Contact"
+  },
+  en: {
+    nav_home: "Home",
+    nav_about: "About",
+    nav_blog: "Blog",
+    nav_projects: "Projects",
+    nav_contact: "Contact",
+    hero_title: "Tarek Abed",
+    hero_desc: "Front-end Developer and professional specialist in Peinture, Plaquiste and Carrelage in France.",
+    btn_consult: "Free Consult",
+    btn_estimator_btn: "Price Estimator",
+    consult_title: "Free Consultation Request",
+    consult_send: "Send Request",
+    calc_heading: "Estimated Price Calculator",
+    calc_service_type: "Select Service or Craft",
+    trouble_title: "Technical & Craft Troubleshooting Guide",
+    services_title: "Micro-services & Ready Codes",
+    blog_title: "Tech Blog",
+    projects_title: "Cloud Projects & Servers",
+    tools_title: "Smart Interactive Tools",
+    calc_title: "Quick Calculator",
+    weather_title: "Live Weather",
+    refresh_weather: "Refresh",
+    currency_title: "Currency Converter",
+    convert_btn: "Convert",
+    game_title: "Interactive Game",
+    game_start: "Click here to start!",
+    game_score: "Time taken: --",
+    contact_title: "Get in Touch"
+  },
+  de: {
+    nav_home: "Startseite",
+    nav_about: "Über uns",
+    nav_blog: "Blog",
+    nav_projects: "Projekte",
+    nav_contact: "Kontakt",
+    hero_title: "Tarek Abed",
+    hero_desc: "Front-end-Entwickler und Spezialist für Peinture, Plaquiste und Carrelage in Frankreich.",
+    btn_consult: "Beratung",
+    btn_estimator_btn: "Rechner",
+    consult_title: "Beratungsanfrage",
+    consult_send: "Senden",
+    calc_heading: "Preisrechner",
+    calc_service_type: "Dienstleistung wählen",
+    trouble_title: "Fehlerbehebung",
+    services_title: "Dienste & Codes",
+    blog_title: "Tech-Blog",
+    projects_title: "Cloud-Projekte",
+    tools_title: "Werkzeuge",
+    calc_title: "Rechner",
+    weather_title: "Wetter",
+    refresh_weather: "Aktualisieren",
+    currency_title: "Währung",
+    convert_btn: "Konvertieren",
+    game_title: "Spiel",
+    game_start: "Starten",
+    game_score: "Zeit: --",
+    contact_title: "Kontakt"
+  },
+  es: {
+    nav_home: "Inicio",
+    nav_about: "Sobre nosotros",
+    nav_blog: "Blog",
+    nav_projects: "Proyectos",
+    nav_contact: "Contacto",
+    hero_title: "Tarek Abed",
+    hero_desc: "Desarrollador Front-end y especialista en Peinture, Plaquiste y Carrelage en Francia.",
+    btn_consult: "Consulta",
+    btn_estimator_btn: "Calculadora",
+    consult_title: "Consulta gratuita",
+    consult_send: "Enviar",
+    calc_heading: "Calculadora de precios",
+    calc_service_type: "Seleccionar servicio",
+    trouble_title: "Solución de problemas",
+    services_title: "Servicios y Códigos",
+    blog_title: "Blog Técnico",
+    projects_title: "Proyectos Cloud",
+    tools_title: "Herramientas",
+    calc_title: "Calculadora",
+    weather_title: "Clima",
+    refresh_weather: "Actualizar",
+    currency_title: "Moneda",
+    convert_btn: "Convertir",
+    game_title: "Juego",
+    game_start: "Comenzar",
+    game_score: "Tiempo: --",
+    contact_title: "Contacto"
+  }
+};
+
+function calculateEstimate() {
+    const type = document.getElementById('serviceType').value;
+    const qty = parseFloat(document.getElementById('serviceQty').value) || 1;
+    const resultElem = document.getElementById('estimateResult');
+    let rate = 0;
+    switch(type) {
+        case 'web': rate = 50; break;
+        case 'app': rate = 300; break;
+        case 'placo': rate = 25; break;
+        case 'peinture': rate = 20; break;
+        case 'carrelage': rate = 40; break;
     }
+    let total = type === 'app' ? rate : rate * qty;
+    resultElem.textContent = `التكلفة التقديرية: ${total} € (قابل للنقاش)`;
 }
 
-// تحميل الثيم المفضّل عند فتح الصفحة وتشغيل الدوال الابتدائية
-window.addEventListener('DOMContentLoaded', () => {
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    document.documentElement.setAttribute('data-theme', savedTheme);
-    const themeBtnIcon = document.querySelector('#themeToggleBtn i');
-    if (themeBtnIcon) {
-        themeBtnIcon.className = savedTheme === 'light' ? 'fa-solid fa-sun' : 'fa-solid fa-moon';
-    }
-    
-    // تشغيل الدوال الحية والابتدائية
-    initPortfolioFilter();
-    getWeather('Argenteuil');
-    getExchangeRates();
-    loadUserReviews();
-    calculatePrice();
-});
+function setLanguage(lang) {
+    const htmlElement = document.documentElement;
+    htmlElement.setAttribute('lang', lang);
+    htmlElement.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
+    localStorage.setItem('preferredLang', lang);
 
-// --- 2. Portfolio Filtering (فلترة معرض الأعمال) ---
-function filterProjects(category) {
-    const items = document.querySelectorAll('.portfolio-item');
-    const buttons = document.querySelectorAll('.filter-btn');
-
-    buttons.forEach(btn => btn.classList.remove('active'));
-    if (event && event.target) {
-        event.target.classList.add('active');
-    }
-
-    items.forEach(item => {
-        if (category === 'all' || item.getAttribute('data-category') === category) {
-            item.style.display = 'block';
-        } else {
-            item.style.display = 'none';
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        if (translations[lang] && translations[lang][key]) {
+            element.textContent = translations[lang][key];
         }
     });
 }
 
-function initPortfolioFilter() {
-    // تفعيل الوضع الافتراضي
-}
+document.addEventListener('DOMContentLoaded', () => {
+    const themeToggle = document.getElementById('themeToggle');
+    const themeIcon = document.getElementById('themeIcon');
+    const htmlElement = document.documentElement;
 
-// --- 3. Lightbox Modal (نافذة تكبير الصور والتفاصيل) ---
-function openLightbox(imgSrc, title, desc, link) {
-    const modal = document.getElementById('lightboxModal');
-    if (!modal) return;
-    document.getElementById('lightboxImg').src = imgSrc;
-    document.getElementById('lightboxTitle').innerText = title;
-    document.getElementById('lightboxDesc').innerText = desc;
-    document.getElementById('lightboxLink').href = link;
-    modal.style.display = 'flex';
-}
-
-function closeLightbox() {
-    const modal = document.getElementById('lightboxModal');
-    if (modal) modal.style.display = 'none';
-}
-
-// إغلاق المودال عند النقر خارج المحتوى
-window.onclick = function(event) {
-    const modal = document.getElementById('lightboxModal');
-    if (event.target === modal) {
-        modal.style.display = 'none';
-    }
-}
-
-// --- 4. Weather API Widget (ودجت الطقس المباشر عبر Open-Meteo) ---
-async function getWeather(cityName = 'Argenteuil') {
-    const cityInput = document.getElementById('cityInput');
-    if (cityInput && cityName !== cityInput.value) {
-        cityInput.value = cityName;
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            if (currentTheme === 'dark') {
+                htmlElement.setAttribute('data-theme', 'light');
+                themeIcon.className = 'fa-solid fa-sun';
+            } else {
+                htmlElement.setAttribute('data-theme', 'dark');
+                themeIcon.className = 'fa-solid fa-moon';
+            }
+        });
     }
 
-    let lat = 48.947;
-    let lon = 2.25;
-    
-    if (cityName.toLowerCase() === 'paris') { lat = 48.8566; lon = 2.3522; }
-    else if (cityName.toLowerCase() === 'cairo') { lat = 30.0444; lon = 31.2357; }
-
-    try {
-        const response = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`);
-        const data = await response.json();
-        
-        if (data && data.current_weather) {
-            const tempElem = document.getElementById('currentTemp');
-            const alertElem = document.getElementById('alertText');
-            if (tempElem) tempElem.innerText = Math.round(data.current_weather.temperature);
-            const windspeed = data.current_weather.windspeed;
-            if (alertElem) alertElem.innerText = `سرعة الرياح: ${windspeed} كم/س - الطقس حي ومستقر في ${cityName}`;
-        }
-    } catch (error) {
-        console.error('خطأ في جلب بيانات الطقس:', error);
-        const tempElem = document.getElementById('currentTemp');
-        const alertElem = document.getElementById('alertText');
-        if (tempElem) tempElem.innerText = '--';
-        if (alertElem) alertElem.innerText = 'تعذر تحديث الطقس الحي مؤقتاً';
+    const langSelect = document.getElementById('langSelect');
+    const savedLang = localStorage.getItem('preferredLang') || 'ar';
+    if (langSelect) {
+        langSelect.value = savedLang;
+        setLanguage(savedLang);
+        langSelect.addEventListener('change', (e) => setLanguage(e.target.value));
     }
+
+    if (localStorage.getItem('cookiesAccepted') === 'true') {
+        const banner = document.getElementById('cookieBanner');
+        if (banner) banner.style.display = 'none';
+    }
+});
+
+function acceptCookies() {
+    localStorage.setItem('cookiesAccepted', 'true');
+    const banner = document.getElementById('cookieBanner');
+    if (banner) banner.style.display = 'none';
 }
 
-function switchWeatherTab(tab) {
-    const hourlyBtn = document.querySelectorAll('.weather-tabs .tab-btn')[0];
-    const dailyBtn = document.querySelectorAll('.weather-tabs .tab-btn')[1];
-    const hourlyView = document.getElementById('hourlyForecast');
-    const dailyView = document.getElementById('dailyForecast');
-
-    if (!hourlyBtn || !dailyBtn) return;
-
-    if (tab === 'hourly') {
-        hourlyBtn.classList.add('active');
-        dailyBtn.classList.remove('active');
-        if (hourlyView) hourlyView.style.display = 'block';
-        if (dailyView) dailyView.style.display = 'none';
-    } else {
-        dailyBtn.classList.add('active');
-        hourlyBtn.classList.remove('active');
-        if (dailyView) {
-            dailyView.style.display = 'block';
-            dailyView.innerHTML = '<p style="color:var(--text-muted); font-size:0.9rem; text-align:center; padding:15px;">توقعات الأسبوع القادم مستقرة وملائمة لأعمال التشطيبات البنائية ☀️</p>';
-        }
-        if (hourlyView) hourlyView.style.display = 'none';
-    }
+function appendCalc(val) {
+    const screen = document.getElementById('calcScreen');
+    if (screen) screen.value += val;
 }
-
-// --- 5. Live Currency Converter (محول العملات المباشر عبر Frankfurter API) ---
-let exchangeRates = { EUR: 1, USD: 1.08, EGP: 52.5, SAR: 4.05 };
-
-async function getExchangeRates() {
-    try {
-        const res = await fetch('https://api.frankfurter.app/latest?from=EUR');
-        const data = await res.json();
-        if (data && data.rates) {
-            exchangeRates = data.rates;
-            exchangeRates['EUR'] = 1; // ضمان تثبيت اليورو كمرجع
-            convertCurrencyLive();
-            console.log('تم تحديث أسعار العملات الحية بنجاح');
-        }
-    } catch (e) {
-        console.log('استخدام أسعار العملات الاحتياطية', e);
-        convertCurrencyLive();
-    }
+function clearCalc() {
+    const screen = document.getElementById('calcScreen');
+    if (screen) screen.value = '';
 }
-
-function convertCurrencyLive() {
-    const amountInput = document.getElementById('fromAmount');
-    const toAmountInput = document.getElementById('toAmount');
-    const fromSelect = document.getElementById('fromCurrency');
-    const toSelect = document.getElementById('toCurrency');
-    
-    if (!amountInput || !toAmountInput || !fromSelect || !toSelect) return;
-
+function calculateResult() {
+    const screen = document.getElementById('calcScreen');
+    if (!screen) return;
+    try { screen.value = eval(screen.value); } catch (e) { screen.value = 'خطأ'; }
+}
+function updateWeather() {
+    const tempVal = document.getElementById('tempVal');
+    if (!tempVal) return;
+    const temps = ['23°C - مشمس', '21°C - غائم جزئياً', '24°C - صافٍ تماماً'];
+    tempVal.textContent = temps[Math.floor(Math.random() * temps.length)];
+}
+function convertCurrency() {
+    const amountInput = document.getElementById('amount');
+    const targetSelect = document.getElementById('currencyTarget');
+    const resultElem = document.getElementById('conversionResult');
+    if (!amountInput || !targetSelect || !resultElem) return;
     const amount = parseFloat(amountInput.value) || 0;
-    const from = fromSelect.value;
-    const to = toSelect.value;
+    const target = targetSelect.value;
+    let rate = target === 'USD' ? 1.08 : 55.5; 
+    let converted = (amount * rate).toFixed(2);
+    let currencySymbol = target === 'USD' ? '$' : 'ج.م';
+    resultElem.textContent = `النتيجة: ${converted} ${currencySymbol}`;
+}
 
-    const rateFrom = exchangeRates[from] || 1;
-    const rateTo = exchangeRates[to] || 1;
+let startTime, endTime, gameTimeout;
+function handleGameClick() {
+    const box = document.getElementById('gameBox');
+    const text = document.getElementById('gameText');
+    const score = document.getElementById('gameScore');
+    if (!box || !text || !score) return;
 
-    // الحساب عبر اليورو كقاعدة أساسية
-    const amountInEUR = amount / rateFrom;
-    const converted = amountInEUR * rateTo;
-
-    toAmountInput.value = converted.toFixed(2);
-    
-    const singleRate = (rateTo / rateFrom).toFixed(4);
-    const rateInfo = document.getElementById('exchangeRateInfo');
-    if (rateInfo) {
-        rateInfo.innerText = `1 ${from} = ${singleRate} ${to} (أسعار حية)`;
+    if (box.classList.contains('waiting')) {
+        clearTimeout(gameTimeout);
+        box.classList.remove('waiting');
+        box.style.backgroundColor = '#e74c3c';
+        text.textContent = 'تم الضغط مبكراً!';
+        return;
     }
-}
-
-function swapCurrencies() {
-    const fromSelect = document.getElementById('fromCurrency');
-    const toSelect = document.getElementById('toCurrency');
-    if (!fromSelect || !toSelect) return;
-    
-    const temp = fromSelect.value;
-    fromSelect.value = toSelect.value;
-    toSelect.value = temp;
-    convertCurrencyLive();
-}
-
-// --- 6. Project & Services Calculator (حاسبة الأسعار الذكية) ---
-function toggleCalculatorType() {
-    const category = document.getElementById('serviceCategory').value;
-    const webOptions = document.getElementById('webCalcOptions');
-    const buildingOptions = document.getElementById('buildingCalcOptions');
-
-    if (category === 'web') {
-        if (webOptions) webOptions.style.display = 'block';
-        if (buildingOptions) buildingOptions.style.display = 'none';
-    } else {
-        if (webOptions) webOptions.style.display = 'none';
-        if (buildingOptions) buildingOptions.style.display = 'block';
+    if (box.classList.contains('ready')) {
+        endTime = new Date().getTime();
+        const timeTaken = endTime - startTime;
+        box.classList.remove('ready');
+        box.style.backgroundColor = '';
+        text.textContent = 'اضغط هنا للبدء!';
+        score.textContent = `الوقت المستغرق: ${timeTaken} ملي ثانية`;
+        return;
     }
-    calculatePrice();
-}
-
-function calculatePrice() {
-    const categoryElem = document.getElementById('serviceCategory');
-    if (!categoryElem) return 0;
-    
-    const category = categoryElem.value;
-    let finalPrice = 150;
-
-    if (category === 'web') {
-        const siteType = parseFloat(document.getElementById('siteType').value) || 150;
-        const langMultiplier = parseFloat(document.getElementById('langCount').value) || 1;
-        finalPrice = Math.round(siteType * langMultiplier);
-    } else {
-        const ratePerMeter = parseFloat(document.getElementById('buildingType').value) || 30;
-        const area = parseFloat(document.getElementById('surfaceArea').value) || 30;
-        finalPrice = ratePerMeter * area;
-    }
-
-    const totalPriceElem = document.getElementById('totalPrice');
-    if (totalPriceElem) {
-        totalPriceElem.innerText = finalPrice + '€';
-    }
-    return finalPrice;
-}
-
-function sendWhatsAppQuote() {
-    const category = document.getElementById('serviceCategory').value;
-    const price = document.getElementById('totalPrice').innerText;
-    let details = '';
-
-    if (category === 'web') {
-        const siteTypeElem = document.getElementById('siteType');
-        const siteType = siteTypeElem ? siteTypeElem.selectedOptions[0].text : 'موقع ويب';
-        details = `تطوير موقع ويب (${siteType})`;
-    } else {
-        const buildTypeElem = document.getElementById('buildingType');
-        const buildType = buildTypeElem ? buildTypeElem.selectedOptions[0].text : 'أعمال تشطيبات';
-        const area = document.getElementById('surfaceArea').value;
-        details = `أعمال تشطيبات (${buildType}) بمساحة ${area} م²`;
-    }
-
-    const message = `السلام عليكم يا باشمهندس طارق، قمت بحساب تقدير لمشروعي عبر الموقع:\n- الخدمة: ${details}\n- التكلفة التقديرية: ${price}\nأرجو التواصل لتأكيد التفاصيل وتحديد الموعد.`;
-    window.open(`https://api.whatsapp.com/send?phone=33749408535&text=${encodeURIComponent(message)}`, '_blank');
-}
-
-function exportToPDF() {
-    window.print();
-}
-
-function openBookingModal() {
-    window.location.hash = '#contact';
-}
-
-// --- 7. Multi-Language Switcher (تبديل اللغات السريع) ---
-function changeLanguage(lang) {
-    if (lang === 'fr') {
-        alert('Basculement vers le Français - Bienvenue sur le site professionnel de Tarek Khorshed.');
-    } else if (lang === 'en') {
-        alert('Switched to English - Welcome to Tarek Khorshed portfolio.');
-    } else if (lang === 'es') {
-        alert('Cambiado al Español - Bienvenido.');
-    } else if (lang === 'de') {
-        alert('Auf Deutsch gewechselt - Willkommen.');
-    }
-}
-
-// --- 8. Testimonials & User Reviews (نظام تقييمات العملاء) ---
-function loadUserReviews() {
-    const grid = document.getElementById('testimonialsGrid');
-    if (!grid) return;
-
-    let defaultReviews = [
-        { name: 'توماس لوروا (Thomas Leroy)', rating: '⭐⭐⭐⭐⭐', comment: 'عمل احترافي دقيق جداً في تشطيبات الجبس بورد والسيراميك بمنزلي في باريس. أنصح بالتعامل معه بشدة!' },
-        { name: 'محمد عبد الله', rating: '⭐⭐⭐⭐⭐', comment: 'موقع بورتفوليو سريع للغاية وبتصميم فخم وراقي. سلمني المشروع في الوقت المحدد تماماً.' }
-    ];
-
-    let savedReviews = JSON.parse(localStorage.getItem('userReviews')) || [];
-    let allReviews = [...savedReviews, ...defaultReviews];
-
-    grid.innerHTML = allReviews.map(r => `
-        <div class="service-card" style="padding: 20px;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
-                <h4 style="color: var(--text-main); font-size: 1.05rem;">${r.name}</h4>
-                <span style="font-size: 0.9rem;">${r.rating}</span>
-            </div>
-            <p style="color: var(--text-muted); font-size: 0.9rem;">"${r.comment}"</p>
-        </div>
-    `).join('');
-}
-
-function submitUserReview(event) {
-    event.preventDefault();
-    const name = document.getElementById('reviewerName').value;
-    const rating = document.getElementById('reviewerRating').value;
-    const comment = document.getElementById('reviewerComment').value;
-
-    let savedReviews = JSON.parse(localStorage.getItem('userReviews')) || [];
-    savedReviews.unshift({ name, rating, comment });
-    localStorage.setItem('userReviews', JSON.stringify(savedReviews));
-
-    document.getElementById('reviewForm').reset();
-    loadUserReviews();
-    alert('شكراً لك! تم نشر تقييمك بنجاح على الموقع.');
+    box.style.backgroundColor = '#f39c12';
+    text.textContent = 'انتظر اللون الأخضر...';
+    box.classList.add('waiting');
+    const randomTime = Math.floor(Math.random() * 2000) + 1500;
+    gameTimeout = setTimeout(() => {
+        box.classList.remove('waiting');
+        box.classList.add('ready');
+        box.style.backgroundColor = '#2ecc71';
+        text.textContent = 'اضغط الآن بسرعة!';
+        startTime = new Date().getTime();
+    }, randomTime);
 }
