@@ -21,7 +21,7 @@ app.use(express.static(__dirname));
 app.get('/', (req, res) => {
   res.json({
     status: 'online',
-    developer: 'Tarek Khorshed',
+    developer: 'Tarek Abed',
     message: 'سيرفر منصة Tarek.Dev يعمل بانتظام وبكفاءة عالية مع MongoDB 🚀'
   });
 });
@@ -87,7 +87,12 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-// تشغيل السيرفر على المنفذ المحدد
-app.listen(PORT, () => {
-  console.log(`🌐 السيرفر يعمل الآن بانتظام على الرابط: http://localhost:${PORT}`);
-});
+// تشغيل السيرفر محلياً فقط إذا لم تكن في بيئة الإنتاج السحابية
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🌐 السيرفر يعمل الآن بانتظام على الرابط: http://localhost:${PORT}`);
+  });
+}
+
+// تصدير التطبيق ليعمل على سيرفرات Vercel السحابية بدون أخطاء
+module.exports = app;
