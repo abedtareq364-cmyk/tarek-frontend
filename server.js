@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const cors = require('cors');
 const connectDB = require('./db');
 
@@ -10,31 +9,16 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// 1. التوجيه المباشر للواجهة الرئيسية (index.html)
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
-});
-
-// 2. التوجيه المباشر لوحة التحكم (admin.html)
-app.get('/admin.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'admin.html'));
-});
-
-// 3. التوجيه المباشر لصفحة (about.html) لو موجودة
-app.get('/about.html', (req, res) => {
-  res.sendFile(path.join(__dirname, 'about.html'));
-});
-
-// 4. مسار فحص حالة السيرفر (مخصص للـ API فقط)
+// مسار فحص حالة السيرفر (API)
 app.get('/api/status', (req, res) => {
   res.json({
     status: 'online',
-    developer: 'Tarek Abed',
+    developer: 'Tarek Khorshed',
     message: 'سيرفر منصة Tarek.Dev يعمل بانتظام وبكفاءة عالية مع MongoDB 🚀'
   });
 });
 
-// 5. API استقبال وحفظ رسائل نموذج التواصل
+// API استقبال وحفظ رسائل نموذج التواصل
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -72,7 +56,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// 6. API لجلب كل الرسائل لوحة التحكم
+// API لجلب كل الرسائل للوحة التحكم
 app.get('/api/messages', async (req, res) => {
   try {
     const database = await connectDB();
