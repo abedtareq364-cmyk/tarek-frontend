@@ -88,4 +88,11 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-module.exports = app;
+module.exports = app; // توجيه صريح لصفحة لوحة التحكم والصفحات الأساسية لتجنب خطأ 404
+app.get('/admin.html', (req, res) => {
+  res.sendFile(__dirname + '/admin.html');
+});
+
+app.get('/about.html', (req, res) => {
+  res.sendFile(__dirname + '/about.html');
+});
