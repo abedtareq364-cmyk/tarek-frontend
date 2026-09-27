@@ -9,7 +9,7 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// مسار فحص حالة السيرفر (API)
+// مسار فحص الحالة (API)
 app.get('/api/status', (req, res) => {
   res.json({
     status: 'online',
@@ -18,7 +18,7 @@ app.get('/api/status', (req, res) => {
   });
 });
 
-// API استقبال وحفظ رسائل نموذج التواصل
+// API استقبال وحفظ الرسائل
 app.post('/api/contact', async (req, res) => {
   const { name, email, message } = req.body;
 
@@ -33,7 +33,7 @@ app.post('/api/contact', async (req, res) => {
 
     res.status(201).json({
       success: true,
-      message: 'تم حفظ الرسالة في قاعدة البيانات بنجاح 🎯',
+      message: 'تم حفظ الرسالة بنجاح 🎯',
       insertedId: result.insertedId
     });
   } catch (err) {
@@ -42,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// API لجلب كل الرسائل للوحة التحكم
+// API جلب الرسائل للوحة التحكم
 app.get('/api/messages', async (req, res) => {
   try {
     const database = await connectDB();
