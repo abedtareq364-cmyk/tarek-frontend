@@ -1,31 +1,31 @@
-// db.js - محرك الاتصال بقاعدة البيانات لمنصة Tarek.Dev
-const { MongoClient, ServerApiVersion } = require('mongodb');
-require('dotenv').config({ path: '.env.local' });
+const { MongoClient } = require('mongodb');
 
 const uri = process.env.MONGO_URI;
 
-// إنشاء كائن الاتصال بالسيرفر السحابي
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
-});
+if (!uri) {
+    console.error('❌ خطأ: متغير البيئة MONGO_URI غير موجود!');
+}
+
+let cachedClient = null;
+let cachedDb = null;
 
 async function connectDB() {
-  try {
-    // الاتصال بالسيرفر السحابي
+    if (cachedDb) {
+        return cachedDb;
+    }
+
+    if (!uri) {
+        throw new Error('Please define the MONGO_URI environment variable');
+    }
+
+    const client = new MongoClient(uri);
     await client.connect();
-    // إرسال أمر فحص الإشارة (Ping) للتحقق من نجاح الاتصال
-    await client.db("admin").command({ ping: 1 });
-    console.log("=========================================");
-    console.log("🟢 تم الاتصال بنجاح بقاعدة بيانات MongoDB Atlas!");
-    console.log("=========================================");
-    return client.db("tarek_db"); // إرجاع قاعدة البيانات لاستخدامها بالمشاريع
-  } catch (error) {
-    console.error("🔴 فشل الاتصال بقاعدة البيانات السحابية:", error.message);
-  }
+    
+    cachedClient = client;
+    cachedDb = client.db(); // يتم استخدام قاعدة البيانات الافتراضية من الرابط
+    
+    console.log('✅ تم الاتصال بقاعدة بيانات MongoDB بنجاح (Cached)');
+    return cachedDb;
 }
 
 module.exports = connectDB;
