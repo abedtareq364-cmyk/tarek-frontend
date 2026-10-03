@@ -203,7 +203,12 @@
             console.error("خطأ في جلب الإعجابات:", error);
         }
     }
-
+// تفعيل وضع المدير تلقائياً عبر الرابط لتجنب مشاكل الكيبورد
+const urlParams = new URLSearchParams(window.location.search);
+if (urlParams.get('admin') === 'true') {
+    localStorage.setItem('isMyBlogAdmin', 'true');
+    alert('تم تفعيل وضع المدير بنجاح يا بشمهندس! 🚀');
+}
     // إرسال وحفظ التعليق في سيرفر Render
     async function addComment() {
         const nameInput = document.getElementById('commenter-name');
