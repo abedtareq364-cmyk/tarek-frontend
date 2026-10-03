@@ -58,7 +58,7 @@ app.get('/api/messages', async (req, res) => {
 
 if (process.env.NODE_ENV !== 'production') {
   app.listen(PORT, () => {
-    console.log(`🌐 السيرفر يعمل محلياً على: http://localhost:${PORT}`);
+    console.log(`🌐 السيرفر يعمل محلياً على:https://tarek-portofolio-backend.onrender.com`);
   });
 }
 

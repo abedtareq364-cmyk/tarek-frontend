@@ -23,7 +23,7 @@
   <div class="container">
     <header>
       <h1><i class="fa-solid fa-gauge-high"></i> لوحة تحكم رسائل العملاء</h1>
-      <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> عودة للموقع</a>
+      <a href="https://tarekkorshed.com" class="back-btn"><i class="fa-solid fa-arrow-right"></i> عودة للموقع</a>
     </header>
 
     <div id="messagesContainer">
@@ -34,7 +34,7 @@
   <script>
     async function fetchMessages() {
       try {
-        const response = await fetch('https://tarek-portofolio-backend.onrender.com');
+        const response = await fetch('https://tarek-portofolio-backend.onrender.com/api/messages');
         const data = await response.json();
 
         const container = document.getElementById('messagesContainer');
