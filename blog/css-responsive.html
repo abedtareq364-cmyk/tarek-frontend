@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>كيف تجعل موقعك متجاوباً مع الشاشات باستخدام CSS؟ | مدونة طارق خورشيد</title>
-  <meta name="description" content="شرح عملي لأهمية الـ Responsive Design وكيفية تحسين تجربة التصفح على الهواتف باستخدام Media Queries لتصدر نتائج جوجل." />
-  <meta name="keywords" content="CSS, Responsive Design, Media Queries, تصميم مواقع, طارق خورشيد" />
+  <meta name="description" content="شرح عملي شامل لأهمية الـ Responsive Design وكيفية تحسين تجربة التصفح على الهواتف والأجهزة المختلفة باستخدام Media Queries ووحدات القياس المرنة." />
+  <meta name="keywords" content="CSS, Responsive Design, Media Queries, تصميم مواقع متجاوبة, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,36 @@
 <body>
   <div class="article-container">
     <h1>كيف تجعل موقعك متجاوباً مع الشاشات باستخدام CSS؟</h1>
-    <p>يُعد التصميم المتجاوب (Responsive Design) أحد الحكّام الأساسيين لنجاح أي موقع إلكتروني حديث. فمع تزايد استخدام الهواتف الذكية للتصفح، أصبح التكيف التلقائي للواجهة مع مختلف أحجام الشاشات شرطاً أساسياً لتجربة المستخدم ومحركات البحث.</p>
+    <p>يُعد التصميم المتجاوب (Responsive Web Design) أحد المعايير الحاسمة لنجاح أي موقع إلكتروني في العصر الحالي. مع تباين أجهزة المستخدمين وتزايد التصفح عبر الهواتف الذكية والأجهزة اللوحية، أصبح التكيف الفوري للواجهة مع مختلف الشاشات شرطاً أساسياً لضمان تجربة مستخدم مريحة (UX) وتح1قيق مراكز متقدمة في خوارزميات محركات البحث (SEO).</p>
 
-    <h2>1. استخدام الاستعلامات المباشرة Media Queries</h2>
-    <p>تسمح خاصية <code>@media</code> بتطبيق تنسيقات CSS مخصصة حسب مقاس شاشة جهاز الزائر، مما يتيح إعادة ترتيب العناصر بسهولة.</p>
+    <h2>1. قوة استعلامات الوسائط (Media Queries)</h2>
+    <p>تعتبر خاصية <code>@media</code> العمود الفقري للتجاوب في لغة CSS. فهي تتيح لك وضع "شروط برمجية" تعتمد على عرض شاشة الجهاز المستخدم، لتطبيق قواعد تصميم مختلفة لكل فئة شاشات (هواتف، أجهزة لوحية، شاشات حواسيب ضخمة).</p>
+    <p><strong>مثال عملي لتغيير حجم الخط أو الهوامش للشاشات الصغيرة:</strong></p>
+    <pre><code>/* افتراضيات الشاشات الكبيرة */
+.container {
+    padding: 40px;
+}
 
-    <h2>2. استخدام وحدات القياس المرنة (Relative Units)</h2>
-    <p>تجنب استخدام البكسل الثابت <code>px</code> في الهياكل الرئيسية، واستبدله بوحدات مرنة مثل <code>%</code> و <code>rem</code> و <code>vw</code>.</p>
+/* التعديل التلقائي للهواتف المحمولة أقل من 768 بكسل */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+}</code></pre>
+
+    <h2>2. اعتماد وحدات القياس المرنة (Relative Units)</h2>
+    <p>من الأخطاء الشائعة الاعتماد المطلق على البكسل الثابت <code>px</code> في تحديد أبعاد الحاويات والهياكل الكبرى. الأفضل هو استخدام وحدات مرنة تتناسب طردياً مع حجم الشاشة أو حجم الخط الأساسي مثل <code>%</code>، و <code>rem</code>، و <code>vw</code>.</p>
+    <ul>
+      <li>استخدام <code>rem</code> للخطوط والهوامش لضمان توافقها مع إعدادات المتصفح للمستخدم.</li>
+      <li>استخدام النسبة المئوية <code>%</code> أو نظام الـ Grid الحديث لتجنب خروج العناصر عن إطار الشاشة في الهواتف.</li>
+    </ul>
+
+    <h2>3. إتاحة عرض الشاشة الصحيح عبر Meta Viewport</h2>
+    <p>لكي تفعل خاصية التجاوب بالشكل السليم، يجب التأكد دائماً من وجود وسم الـ Viewport داخل قسم الـ <code>&lt;head&gt;</code> في ملف الـ HTML الخاص بك، وهو المسؤول عن ضبط مقياس العرض الافتراضي للهواتف:</p>
+    <pre><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0" /&gt;</code></pre>
+
+    <h2>خاتمة</h2>
+    <p>التصميم المتجاوب ليس مجرد خيار تجميلي، بل هو مهارة أساسية تضمن وصول محتواك وموقعك لكل زائر بغض النظر عن جهازه. ابدأ بتطبيق هذه القواعد البسيطة في مشروعك، وستلاحظ بنفسك احترافية وانسيابية التصفح.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

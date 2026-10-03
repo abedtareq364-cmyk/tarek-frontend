@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>كيف تؤثر سرعة الموقع على ترتيبك في نتائج جوجل (SEO)؟ | مدونة طارق خورشيد</title>
-  <meta name="description" content="دليل تقني حول أهمية سرعة تحميل الصفحات وتسريع أداء الويب لتحسين ترتيبك في محركات البحث وزيادة الأرباح." />
-  <meta name="keywords" content="سرعة الموقع, SEO, تسريع الويب, Core Web Vitals, طارق خورشيد" />
+  <meta name="description" content="دليل تقني شامل حول أهمية سرعة تحميل الصفحات وتسريع أداء الويب لتحسين ترتيبك في محركات البحث، زيادة الأرباح، وتلبية معايير Core Web Vitals." />
+  <meta name="keywords" content="سرعة الموقع, SEO, تسريع الويب, Core Web Vitals, محركات البحث, تجربة المستخدم, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,26 @@
 <body>
   <div class="article-container">
     <h1>كيف تؤثر سرعة الموقع على ترتيبك في نتائج جوجل (SEO)؟</h1>
-    <p>تعتبر سرعة التحميل معامل ترتيب مباشر ورسمي في خوارزميات محرك البحث جوجل. تؤدي الصفحات البطيئة لارتفاع معدل الارتداد (Bounce Rate) وتراجع التصنيف بشكل ملحوظ.</p>
+    <p>لم تعد سرعة تحميل صفحات الويب مجرد ميزة تحسينية إضافية، بل أصبحت <strong>عاملاً رئيسياً ومباشراً في خوارزميات ترتيب محركات البحث</strong> مثل جوجل. عندما يبحث المستخدم عن خدمة أو معلومة، فإن محرك البحث يسعى دائماً لتقديم النتيجة الأكثر سرعة وسلاسة. الصفحات البطيئة لا تؤدي فقط إلى تراجع الترتيب، بل ترفع بشكل جنوني من معدل الارتداد (Bounce Rate) وتدمر تجربة المستخدم (UX).</p>
 
-    <h2>1. ضغط وتحسين الصور (Image Optimization)</h2>
-    <p>استخدام صيغ حديثة مثل WebP وضغط الملفات يقلل حجم الصفحات بنسبة تصل إلى 70% دون المساس بالجودة Visual Quality.</p>
+    <h2>1. معايير الويب الأساسية (Core Web Vitals)</h2>
+    <p>يعتمد جوجل اليوم بشكل مكثف على معايير الأداء المباشرة لقياس تجربة تصفح المواقع، والتي ترتبط ارتباطاً وثيقاً بسرعتها البرمجية وهيكلتها:</p>
+    <ul>
+      <li><strong>LCP (Largest Contentful Paint):</strong> يقيس سرعة ظهور أكبر عنصر مرئي في الصفحة (مثل العناوين الكبرى أو الصور الرئيسية)، ويجب أن يتم خلال أقل من 2.5 ثانية.</li>
+      <li><strong>INP / FID:</strong> يقيس مدى استجابة الصفحة لتفاعل الزائر (الضغط على الأزرار أو الروابط).</li>
+      <li><strong>CLS:</strong> يقيس استقرار محتوى الصفحة أثناء التحميل لمنع القفزات المزعجة للعناصر.</li>
+    </ul>
 
-    <h2>2. تقليل طلبات HTTP والضغط البرمجي</h2>
-    <p>دمج ملفات CSS و JavaScript وتفعيل ضغط Gzip/Brotli على السيرفر يضمن سرعة استجابة خاطفة للزائر.</p>
+    <h2>2. ضغط وتحسين الصور (Image Optimization)</h2>
+    <p>تعتبر الصور الضخمة وغير المحسنة هي السبب الأول لبطء المواقع الإلكترونية. الانتقال من الصيغ التقليدية إلى صيغ حديثة مثل <code>WebP</code>، إلى جانب تفعيل خاصية التحميل الكسول (Lazy Loading)، يقلل من حجم الصفحة بنسب هائلة دون المساس بجودة العرض البصري.</p>
+    <p><strong>مثال لتفعيل التحميل الكسول للصورة عبر HTML:</strong></p>
+    <pre><code>&lt;img src="image.webp" alt="Description" loading="lazy" /&gt;</code></pre>
+
+    <h2>3. ضغط الملفات البرمجية وتفعيل ضغط السيرفر</h2>
+    <p>دمج ملفات CSS و JavaScript وتقليل مساحاتها (Minification)، إلى جانب تفعيل تقنيات الضغط المتقدمة على الخادم مثل <code>Gzip</code> أو <code>Brotli</code>، يضمن انتقال حزم البيانات من السيرفر إلى متصفح الزائر في أجزاء من الثانية.</p>
+
+    <h2>خاتمة</h2>
+    <p>الاستثمار في تسريع موقعك البرمجي وتحسين توافقه مع معايير الـ SEO هو استثمار مباشر في نجاحك الرقمي وجذب العملاء المستهدفين لموقعك بكل سلاسة واحترافية.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

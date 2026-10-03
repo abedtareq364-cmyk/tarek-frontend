@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>أفضل ممارسات أمان وحماية مواقع الويب للمطورين | مدونة طارق خورشيد</title>
-  <meta name="description" content="تعرف على أهم المفاهيم والتقنيات البرمجية لتأمين مواقع وتطبيقات الويب وحمايتها من الثغرات والهجمات الشائعة." />
-  <meta name="keywords" content="أمان الويب, Web Security, XSS, CSRF, SSL, طارق خورشيد, تطوير الويب" />
+  <meta name="description" content="دليل تقني شامل حول أفضل ممارسات أمان وتأمين مواقع وتطبيقات الويب، التصدي للثغرات الشائعة مثل XSS، وحماية بيانات المستخدمين لتعزيز الثقة، القبول في أدسينس، وتصدر الـ SEO." />
+  <meta name="keywords" content="أمان الويب, Web Security, XSS, CSRF, SSL, حماية التطبيقات, تطوير الويب, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,26 @@
 <body>
   <div class="article-container">
     <h1>أفضل ممارسات أمان وحماية مواقع الويب للمطورين</h1>
-    <p>تعتبر حماية أمن البيانات وسلامة الموقع البرمجية جزءاً لا يتجزأ من جودة تطوير تطبيقات الويب الحديثة، مما ينال ثقة محركات البحث ومزودي الخدمات مثل <strong>Google AdSense</strong>.</p>
+    <p>تعتبر حماية أمن البيانات وسلامة الهياكل البرمجية جزءاً لا يتجزأ من جودة تطوير تطبيقات الويب الحديثة. في عالم تزداد فيه الهجمات السيبرانية يوماً بعد يوم، لم يعد تأمين المواقع مجرد خيار تكميلي، بل هو الضمان الحقيقي لاستمرار مشروعك الرقمي، نيل ثقة المستخدمين، وكسب رضا محركات البحث ومزودي الخدمات الكبرى مثل <strong>Google AdSense</strong>.</p>
 
-    <h2>1. تنقية وتطهير المدخلات</h2>
-    <p>فحص وتنقية البيانات المدخلة يمنع هجمات <code>Cross-Site Scripting (XSS)</code> الخبيثة.</p>
+    <h2>1. تنقية وتطهير المدخلات (Input Sanitization)</h2>
+    <p>واحدة من أبشع الثغرات البرمجية وأكثرها شيوعاً هي ثغرات الحقن البرمجي، وعلى رأسها <strong>Cross-Site Scripting (XSS)</strong>. تحدث هذه الثغرات عندما يثق الموقع بشكل كامل في المدخلات القادمة من المستخدمين (مثل تعليقات النماذج أو حقول البحث) ويقوم بعرضها مباشرة دون تنقية.</p>
+    <p><strong>الحل الاحترافي:</strong> عدم الثقة المطلقة في أي بيانات خارجية، والقيام دائماً بتعقيم وفلترة المدخلات برمجياً قبل تخزينها أو عرضها على الواجهة الأمامية.</p>
 
-    <h2>2. التشفير ببروتوكول HTTPS</h2>
-    <p>يضمن استخدام بروتوكول التشفير <code>HTTPS</code> حماية البيانات المتداولة وتصنيف الموقع كـ "آمن".</p>
+    <h2>2. التشفير الشامل ببروتوكول HTTPS وشهادات SSL</h2>
+    <p>يضمن استخدام بروتوكول التشفير <code>HTTPS</code> حماية كافة البيانات المتبادلة بين متصفح الزائر وخادم الموقع من عمليات التنصت أو الاعتراض (Man-in-the-Middle Attacks). محركات البحث تضع المواقع المشفرة في مرتبة أولوية قصوى، وتعتبر شهادة الأمان معياراً رسمياً لتوثيق هوية الموقع.</p>
+
+    <h2>3. حماية ملفات تعريف الارتباط (Secure Cookies)</h2>
+    <p>إذا كانت منصتك تعتمد على تسجيل الدخول أو تخزين بيانات الجلسات (Sessions)، فيجب تأمين الكوكيز عبر تفعيل خصائص الحماية المتقدمة مثل <code>HttpOnly</code> (لمنع وصول أكواد الجافاسكريبت الخبيثة لبيانات الجلسة) و <code>Secure</code> (لتقتصر على قنوات HTTPS فقط).</p>
+    <p><strong>مثال إعداد كوكيز آمن في البرمجة:</strong></p>
+    <pre><code>res.cookie('session_token', token, {
+    httpOnly: true,
+    secure: true,
+    sameSite: 'strict'
+});</code></pre>
+
+    <h2>خاتمة</h2>
+    <p>أمان تطبيقات الويب هو رحلة مستمرة وليست محطة وصول واحدة. تطبيق هذه الممارسات الاحترافية يحصن موقعك ضد أبسط وأخطر الثغرات، ويسهل عليك بناء سمعة تقنية قوية وموثوقة.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>إتاحة الويب (Web Accessibility): معايير تجربة المستخدم | مدونة طارق خورشيد</title>
-  <meta name="description" content="تعرف على قواعد وإرشادات إتاحة المواقع الإلكترونية لتناسب جميع المستفيدين وتصعد في نتائج بحث جوجل." />
-  <meta name="keywords" content="Accessibility, a11y, إتاحة الويب, SEO, طارق خورشيد" />
+  <title>إتاحة الويب (Web Accessibility): معايير تجربة المستخدم والـ SEO | مدونة طارق خورشيد</title>
+  <meta name="description" content="دليل تقني شامل حول قواعد وإرشادات إتاحة المواقع الإلكترونية (a11y) لتناسب جميع المستخدمين، تحسين إمكانية الوصول، وتعزيز ترتيبك في نتائج بحث جوجل." />
+  <meta name="keywords" content="Accessibility, a11y, إتاحة الويب, تجربة المستخدم, WCAG, SEO, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,24 @@
 <body>
   <div class="article-container">
     <h1>إتاحة الويب (Web Accessibility): معايير تجربة المستخدم والـ SEO</h1>
-    <p>تهدف معايير <strong>Web Accessibility (a11y)</strong> إلى جعل مواقع الإنترنت سهلة التصفح وقابلة للاستخدام من قبل جميع زوار شبكة الويب.</p>
+    <p>تهدف معايير <strong>Web Accessibility</strong> (والتي تُعرف اختصاراً بـ <strong>a11y</strong>) إلى تصميم وتطوير مواقع الإنترنت بحيث تكون قابلة للاستخدام والتصفح بكفاءة عالية من قِبل جميع الأشخاص، بغض النظر عن قدراتهم البدنية أو الحركية أو البصرية. إتاحة الويب ليست مجرد ميزة إضافية، بل هي معيار أساسي للاحترافية البرمجية، وتلعب دوراً محورياً في تعزيز تحسين محركات البحث (SEO).</p>
 
-    <h2>1. النص البديل للصور (Alt Attributes)</h2>
-    <p>إضافة التوصيف <code>alt</code> الدقيق لكل صورة يساعد قارئات الشاشة ويُعلم محركات البحث بمضمون الصورة.</p>
+    <h2>1. استخدام الهيكلة الدلالية لـ HTML5 (Semantic HTML)</h2>
+    <p>يعتمد جزء كبير من إتاحة الويب على استخدام الوسوم الصحيحة في مكانها الصحيح. بدلاً من الاعتماد المطلق على عناصر <code>&lt;div&gt;</code> العشوائية، يجب استخدام الوسوم الدلالية مثل <code>&lt;header&gt;</code>، <code>&lt;nav&gt;</code>، <code>&lt;main&gt;</code>، <code>&lt;article&gt;</code>، و <code>&lt;footer&gt;</code>. هذا الترتيب يساعد برامج قراءة الشاشة (Screen Readers) على فهم محتوى الصفحة وسياقها بوضوح تام.</p>
 
-    <h2>2. التباين الجيد للألوان (Color Contrast)</h2>
-    <p>التأكد من وجود تباين كافٍ بين لون النص ولون الخلفية يسهل القراءة ويمنح الزائر تجربة مريحة ومستقرة.</p>
+    <h2>2. النص البديل للصور (Alt Attributes)</h2>
+    <p>العناصر البصرية مثل الصور لا يمكن لقارئات الشاشة قراءتها إلا إذا كانت مدعومة بخاصية النص البديل <code>alt</code>. إضافة وصف دقيق ومختصر لكل صورة لا يساعد فقط ضعاف البصر، بل يمنح محركات البحث فهماً أدق لمحتوى الصور ويعزز ظهورها في نتائج البحث.</p>
+    <p><strong>مثال عملي لكتابة نص بديل احترافي:</strong></p>
+    <pre><code>&lt;img src="tarek-profile.webp" alt="صورة البرمججي طارق خورشيد أثناء العمل على تطوير الواجهات الأمامية" /&gt;</code></pre>
+
+    <h2>3. التباين الجيد للألوان (Color Contrast)</h2>
+    <p>يجب التأكد من وجود تباين لوني كافٍ بين النصوص وخلفياتها وفقاً لمعايير WCAG العالمية. النصوص الباهتة أو ذات التباين الضعيف تجهد العين وتجعل الموقع غير قابل للقراءة لشريحة واسعة من المستخدمين، فضلاً عن تأثيرها السلبي على تقييمات الأداء وسهولة الاستخدام.</p>
+
+    <h2>4. دعم التنقل بلوحة المفاتيح (Keyboard Navigation)</h2>
+    <p>الكثير من المستخدمين ذوي الإعاقة الحركية لا يستطيعون استخدام الفأرة (Mouse)، ويعتمدون كلياً على مفتاح <code>Tab</code> في لوحة المفاتيح للتنقل بين الروابط والأزرار. لذلك يجب التأكد من ظهور مؤشرات التركيز (Focus States) بوضوح على العناصر النشطة أثناء التصفح.</p>
+
+    <h2>خاتمة</h2>
+    <p>تطبيق معايير إتاحة الويب (a11y) يوسع نطاق جمهورك المستهدف، يرفع من جودة وكفاءة أكوادك البرمجية، ويضع موقعك في مقدمة المواقع الموثوقة والمهنية أمام محركات البحث والعملاء.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

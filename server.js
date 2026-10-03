@@ -62,4 +62,75 @@ if (process.env.NODE_ENV !== 'production') {
   });
 }
 
-module.exports = app;
+app.post('/api/comments', async (req, res) => {
+  const { articleId, name, rating, text } = req.body;
+
+  try {
+    const database = await connectDB();
+    const collection = database.collection('comments');
+
+    const newComment = {
+      articleId: articleId || 'clean-code',
+      name: (name && name.trim()) ? name.trim() : '',
+      rating: rating ? Number(rating) : 5,
+      text: (text && text.trim()) ? text.trim() : '',
+      created_at: new Date()
+    };
+
+    const result = await collection.insertOne(newComment);
+
+    res.status(201).json({
+      success: true,
+      message: 'تم الحفظ بنجاح 🎯',
+      comment: { ...newComment, _id: result.insertedId }
+    });
+  } catch (err) {
+    console.error('❌ خطأ في حفظ التعليق:', err);
+    res.status(500).json({ success: false, error: 'حدث خطأ داخلي في الخادم.' });
+  }
+});
+
+module.exports = app; // API لجلب عدد الإعجابات للمقال
+app.get('/api/likes', async (req, res) => {
+  try {
+    const database = await connectDB();
+    const collection = database.collection('likes');
+    const articleId = req.query.article || 'clean-code';
+    
+    let likeDoc = await collection.findOne({ articleId });
+    const count = likeDoc ? likeDoc.count : 18; // لو مش موجود يبدأ من 18 افتراضياً
+    res.status(200).json({ success: true, count });
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'تعذر جلب الإعجابات' });
+  }
+});
+
+// API لتسجيل أو إلغاء الإعجاب وتحديثه في قاعدة البيانات
+app.post('/api/likes', async (req, res) => {
+  try {
+    const database = await connectDB();
+    const collection = database.collection('likes');
+    const { articleId, action } = req.body; // action: 'like' أو 'unlike'
+    const targetArticle = articleId || 'clean-code';
+    const increment = action === 'unlike' ? -1 : 1;
+
+    let likeDoc = await collection.findOne({ articleId: targetArticle });
+    if (!likeDoc) {
+      let initialCount = 18 + increment;
+      await collection.insertOne({ articleId: targetArticle, count: initialCount });
+      return res.status(200).json({ success: true, count: initialCount });
+    }
+
+    let newCount = likeDoc.count + increment;
+    if (newCount < 0) newCount = 0;
+
+    await collection.updateOne(
+      { articleId: targetArticle },
+      { $set: { count: newCount } }
+    );
+
+    res.status(200).json({ success: true, count: newCount });
+  } catch (err) {
+    res.status(500).json({ success: false, error: 'تعذر تحديث الإعجاب' });
+  }
+});

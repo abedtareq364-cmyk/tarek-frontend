@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>دليل المبتدئين لإتقان Git و GitHub | مدونة طارق خورشيد</title>
-  <meta name="description" content="شرح شامل لأساسيات نظام التحكم في الإصدارات Git ومنصة GitHub للمبرمجين ومطوري الويب." />
-  <meta name="keywords" content="Git, GitHub, إدارة المشاريع, تطوير الويب, طارق خورشيد" />
+  <title>دليل المبتدئين لإتقان Git و GitHub في إدارة المشاريع البرمجية | مدونة طارق خورشيد</title>
+  <meta name="description" content="شرح شامل وعملي لأساسيات نظام التحكم في الإصدارات Git ومنصة GitHub السحابية للمبرمجين ومطوري الويب لادارة الأكواد باحترافية." />
+  <meta name="keywords" content="Git, GitHub, إدارة المشاريع, تطوير الويب, تحكم في الإصدارات, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,14 +35,32 @@
 <body>
   <div class="article-container">
     <h1>دليل المبتدئين لإتقان Git و GitHub في إدارة المشاريع البرمجية</h1>
-    <p>يعد نظام التحكم في الإصدارات <strong>Git</strong> الأداة الأساسية لكل مطور ويب لحفظ التغييرات ومشاركتها أونلاين عبر <strong>GitHub</strong>.</p>
+    <p>إذا كنت جاداً في دخول عالم تطوير الويب أو البرمجة بشكل عام، فإن تعلم نظام التحكم في الإصدارات <strong>Git</strong> ومنصة المشاركة السحابية <strong>GitHub</strong> لم يعد مجرد مهارة إضافية، بل هو شريان الحياة لأي مشروع برمجي ناجح. يتيح لك Git تتبع كل سطر كود تكتبه والعودة للنسخ القديمة عند حدوث أخطاء، بينما يعمل GitHub كمنصة عالمية لاستضافة مشاريعك وعرضها أمام العملاء وأصحاب العمل.</p>
 
-    <h2>أهم الأوامر الأساسية</h2>
+    <h2>1. ما هو الفرق بين Git و GitHub؟</h2>
+    <p>يخلط المبتدؤون أحياناً بين الأسمين، لكن الفارق جوهري:</p>
     <ul>
-      <li><code>git add .</code>: لتجهيز التغييرات.</li>
-      <li><code>git commit -m "Message"</code>: لتأكيد التغييرات.</li>
-      <li><code>git push</code>: لرفع الملفات للخادم السحابي.</li>
+      <li><strong>Git:</strong> هو النظام المحلي (Version Control System) الذي تقوم بتثبيته على جهازك الشخصي لمتابعة التغييرات داخل ملفات المشروع عبر سطر الأوامر (Terminal).</li>
+      <li><strong>GitHub:</strong> هو منصة سحابية مبنية على شبكة الإنترنت تستضيف مستودعات (Repositories) مشروعك المكتوبة بواسطة Git، مما يتيح لك النسخ الاحتياطي والتعاون مع المبرمجين الآخرين.</li>
     </ul>
+
+    <h2>2. أهم أوامر Git الأساسية التي ستستخدمها يومياً</h2>
+    <p>للبدء في حفظ وتحديث مشاريعك البرمجية، هناك تسلسل أساسي وثابت من الأوامر التي لا غنى عنها:</p>
+    <ul>
+      <li><code>git add .</code>: أمر يقوم بتجهيز وإضافة جميع الملفات المعدلة حديثاً إلى منطقة الانتظار (Staging Area) تمهيداً لحفظها.</li>
+      <li><code>git commit -m "رسالة توضيحية"</code>: أمر حفظ التغييرات محلياً مع كتابة رسالة قصيرة توضح التعديل الذي قمت به (مثل إضافة ميزة جديدة أو إصلاح خطأ).</li>
+      <li><code>git push</code>: أمر رفع الملفات المؤكدة من جهازك المحلي إلى المستودع السحابي على GitHub.</li>
+    </ul>
+    <p><strong>مثال تسلسلي للاستخدام السريع في الـ Terminal:</strong></p>
+    <pre><code>git add .
+git commit -m "Update website styles and fix layout bug"
+git push</code></pre>
+
+    <h2>3. لماذا يهمك استخدام Git و GitHub كمبرمج؟</h2>
+    <p>العمل الجماعي وتأمين الملفات هما الفوائد الكبرى؛ فحتى لو كنت تعمل بمفردك على تطوير موقعك الشخصي، فإن حفظ الأكواد سحابياً يحميك تماماً من ضياع الملفات عند تعطل الحاسوب. كما أن حسابك على GitHub يعتبر بمثابة "السيرة الذاتية الحية" (Portfolio) التي تثبت كفاءتك للشركات والعملاء.</p>
+
+    <h2>خاتمة</h2>
+    <p>إتقان التعامل مع سطر الأوامر وأوامر Git الأساسية يمنحك شعوراً بالسيطرة والاحترافية المطلقة على مشاريعك. ابدأ بتطبيق هذه الأوامر في مشاريعك القادمة واجعل تتبع أكوادك عادة يومية ثابتة.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

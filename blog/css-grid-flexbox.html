@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>الفرق بين CSS Flexbox و CSS Grid | مدونة طارق خورشيد</title>
-  <meta name="description" content="مقارنة تقنية بين CSS Flexbox و CSS Grid وكيفية اختيار الأنسب لتنسيق واجهات الويب المتجاوبة." />
-  <meta name="keywords" content="CSS, Flexbox, Grid, تصميم ويب, طارق خورشيد" />
+  <title>الفرق بين CSS Flexbox و CSS Grid ومتى تستخدم كلاً منهما؟ | مدونة طارق خورشيد</title>
+  <meta name="description" content="مقارنة تقنية شاملة بين CSS Flexbox و CSS Grid وكيفية اختيار النظام الأنسب لتنسيق واجهات الويب المتجاوبة باحترافية." />
+  <meta name="keywords" content="CSS, Flexbox, Grid, تصميم ويب, واجهات المستخدم, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,41 @@
 <body>
   <div class="article-container">
     <h1>الفرق بين CSS Flexbox و CSS Grid ومتى تستخدم كلاً منهما؟</h1>
-    <p>تعد <strong>Flexbox</strong> و <strong>Grid</strong> من أقوى أدوات التنسيق في CSS لبناء الهياكل المتجاوبة.</p>
+    <p>لقد أحدثت تقنيات التنسيق الحديثة في لغة CSS ثورة حقيقية في عالم تطوير الويب. لم تعد بحاجة لاستخدام الحيل القديمة مثل <code>float</code> أو الجداول لتصميم صفحات الإنترنت المتجاوبة. اليوم، يبرز نظامان أساسيان لقيت بهما القيادة وهما: <strong>Flexbox</strong> و <strong>CSS Grid</strong>. وفهم الفرق الجوهري بينهما يُميز المطور الهاوي عن المحترف.</p>
 
-    <h2>1. نظام Flexbox</h2>
-    <p>يعمل على محور واحد فقط، وهو مثالي لشريط التنقل العلوي والأزرار والقوائم.</p>
+    <h2>1. نظام Flexbox: القوة أحادية الاتجاه (One-Dimensional)</h2>
+    <p>صُمم نظام <strong>Flexbox</strong> (Flexible Box Module) ليتعامل مع العناصر في <strong>محور واحد فقط</strong> في المرة الواحدة؛ إما في شكل صف أفقي (Row) أو عمود رأسي (Column). إنه الأداة المثالية لتوزيع المساحات وترتيب العناصر داخل المكونات الصغيرة.</p>
+    <p><strong>متى تختار Flexbox؟</strong></p>
+    <ul>
+      <li>تصميم أشرطة التنقل العلوية (Navbars).</li>
+      <li>محاذاة العناصر في المنتصف أفقياً وعمودياً.</li>
+      <li>توزيع الأزرار أو البطاقات بجوار بعضها مع التفاف مرن (Flex-wrap).</li>
+    </ul>
+    <pre><code>.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}</code></pre>
 
-    <h2>2. نظام CSS Grid</h2>
-    <p>يعمل على محوري الأفق والعمود في نفس الوقت، وهو الخيار الأول لبناء الواجهات وشبكات المشاريع.</p>
+    <h2>2. نظام CSS Grid: التحكم الثنائي الشامل (Two-Dimensional)</h2>
+    <p>أما نظام <strong>CSS Grid</strong> فهو الأداة الأقوى على الإطلاق لتنسيق الصفحات لأنه يتعامل مع <strong>محورين في نفس الوقت: الصفوف (Rows) والأعمدة (Columns)</strong>. يتيح لك تقسيم مساحة الصفحة بالكامل إلى شبكة دقيقة، وتشكيل الهيكل العام للموقع بكفاءة مذهلة.</p>
+    <p><strong>متى تختار CSS Grid؟</strong></p>
+    <ul>
+      <li>بناء الهيكل العام للصفحة بالكامل (Layout Structure).</li>
+      <li>تصميم شبكات عرض المنتجات أو المقالات (Grid Galleries).</li>
+      <li>التحكم في أماكن وتداخل العناصر بشكل دقيق ومعقد دون الحاجة لحسابات معقدة.</li>
+    </ul>
+    <pre><code>.main-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}</code></pre>
+
+    <h2>3. القاعدة الذهبية: هل هما متنافسان أم متكاملان؟</h2>
+    <p>الخطأ الشائع لدى الكثير من المبرمجين هو الاعتقاد بأن عليك اختيار أحدهما وترك الآخر. الحقيقة البرمجية هي أنهما <strong>أداتان متكاملتان تماماً</strong>. يمكنك استخدام <strong>Grid</strong> لتخطيط الهيكل العام للصفحة وتوزيع الأقسام الكبرى، ثم استخدام <strong>Flexbox</strong> داخل كل قسم لترتيب العناصر الداخلية بدقة وسلاسة.</p>
+
+    <h2>خاتمة</h2>
+    <p>إتقانك للفرق بين Flexbox و Grid يختصر عليك الكثير من الوقت والجهد في كتابة أكواد معقدة، ويمنحك مرونة عالية في بناء واجهات مستخدم سريعة، نظيفة، ومتجاوبة تماماً مع جميع الأجهزة والشاشات.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>

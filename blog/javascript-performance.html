@@ -4,8 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>كيف تحسن أداء برمجيات JavaScript لتسريع مواقع الويب؟ | مدونة طارق خورشيد</title>
-  <meta name="description" content="تعرف على أفضل الممارسات والتقنيات البرمجية لتسريع أداء كود الجافاسكريبت وتحسين سرعة تحميل المواقع الإلكترونية للـ SEO." />
-  <meta name="keywords" content="JavaScript, تسريع المواقع, أداء الجافاسكريبت, SEO, تطوير الويب, طارق خورشيد" />
+  <meta name="description" content="تعرف على أفضل الممارسات والتقنيات البرمجية المتقدمة لتسريع أداء كود الجافاسكريبت، تقليل وقت الاستجابة، وتحسين سرعة تحميل المواقع الإلكترونية لمحركات البحث." />
+  <meta name="keywords" content="JavaScript, تسريع المواقع, أداء الجافاسكريبت, Core Web Vitals, تطوير الويب, طارق خورشيد" />
   
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FTX94ZRQ8N"></script>
   <script>
@@ -26,6 +26,8 @@
     ul { margin-right: 20px; color: #cbd5e1; margin-bottom: 20px; }
     li { margin-bottom: 10px; }
     code { background: #0f172a; color: #38bdf8; padding: 2px 8px; border-radius: 6px; font-family: monospace; font-size: 0.95rem; }
+    pre { background: #0f172a; padding: 15px; border-radius: 8px; overflow-x: auto; border: 1px solid rgba(56, 189, 248, 0.15); margin: 15px 0; }
+    pre code { background: none; padding: 0; color: #38bdf8; }
     .back-btn { display: inline-block; margin-top: 30px; color: #0f172a; background: #38bdf8; padding: 10px 20px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: background 0.3s; }
     .back-btn:hover { background: #0284c7; color: #fff; }
   </style>
@@ -33,13 +35,31 @@
 <body>
   <div class="article-container">
     <h1>كيف تحسن أداء برمجيات JavaScript لتسريع مواقع الويب؟</h1>
-    <p>تعتبر لغة <strong>JavaScript</strong> المكون الأساسي للتفاعلية في شبكة الويب الحديثة، إلا أن كتابة كود غير منظم أو تنفيذ عمليات غير محسونة قد يؤدي إلى بطء في تحميل الصفحات واستنزاف موارد أجهزة الزوار، مما ينعكس سلباً على تجربة المستخدم وترتيب الموقع في محركات البحث (SEO).</p>
+    <p>تعتبر لغة <strong>JavaScript</strong> هي المحرك الرئيسي لتفاعلية صفحات الويب الحديثة، إلا أن كتابة أكواد غير محسنة أو التعامل العشوائي مع عناصر الصفحة قد يؤدي إلى بطء ملحوظ في الاستجابة واستهلاك موارد أجهزة الزوار. في عصر تقييمات محركات البحث الحالية (مثل معايير Core Web Vitals في جوجل)، أصبح تحسين أداء جافاسكريبت شرطاً أساسياً لضمان تجربة مستخدم سريعة، سلسة، ومتصدرة لنتائج البحث.</p>
 
-    <h2>1. تقليل عمليات تعديل الـ DOM</h2>
-    <p>تعد عمليات التعديل المباشرة على هيكل المستند (DOM) من أكثر العمليات استهلاكاً للمعالج. للتغلب على هذه المشكلة، يُفضل استخدام التعديل الجماعي بـ <code>DocumentFragment</code> لجمع التعديلات وتنفيذها دفعة واحدة.</p>
+    <h2>1. تقليل وتحسين عمليات التعديل المباشر للـ DOM</h2>
+    <p>تعتبر عملية التعديل المباشر على هيكل المستند (DOM Manipulation) من أكثر العمليات استهلاكاً لوقت المعالج (CPU). فكلما قمت بإضافة عنصر جديد داخل حلقة تكرارية مباشرة، يضطر المتصفح لإعادة بناء الصفحة بالكامل (Reflow / Repaint)، مما يسبب بطء واجهة المستخدم.</p>
+    <p><strong>الحل الاحترافي:</strong> استخدام <code>DocumentFragment</code> لجمع كافة العناصر وتعديلها في الذاكرة أولاً، ثم إضافتها دفعة واحدة للمستند:</p>
+    <pre><code>const fragment = document.createDocumentFragment();
+for (let i = 0; i < 100; i++) {
+    const div = document.createElement('div');
+    div.textContent = `Item ${i}`;
+    fragment.appendChild(div);
+}
+document.body.appendChild(fragment); // عملية إضافة واحدة فقط للـ DOM</code></pre>
 
-    <h2>2. استخدام التحميل التأجيلي للسكربتات</h2>
-    <p>استخدم الخاصية <code>defer</code> للسكربتات التي تعتمد على اكتمال الـ DOM ليتم تنفيذها بالترتيب، والخاصية <code>async</code> للسكربتات المستقلة مثل Google Analytics.</p>
+    <h2>2. الاستراتيجية الذكية للتحميل: Async مقابل Defer</h2>
+    <p>تحميل ملفات الجافاسكريبت الكبيرة بالطريقة التقليدية يوقف عملية قراءة صفحة الويب (Render-blocking) لحين تحميل الملف بالكامل وتثبيته. لتجاوز ذلك، يجب استخدام الخصائص الحديثة عند استدعاء السكربتات:</p>
+    <ul>
+      <li><strong>defer:</strong> يقوم بتحميل الملف في الخلفية بالتوازي مع قراءة الصفحة، وينفذه بالترتيب فور اكتمال بناء الـ DOM بالكامل.</li>
+      <li><strong>async:</strong> يحمل الملف في الخلفية وينفذه بمجرد انتهاء التحميل فوراً (مناسب للسكربتات المستقلة تماماً مثل أدوات التحليل كـ Google Analytics).</li>
+    </ul>
+
+    <h2>3. التخلص من تسريب الذاكرة (Memory Leaks)</h2>
+    <p>ترك مستمعي الأحداث (Event Listeners) أو المتغيرات العامة (Global Variables) دون تنظيف بعد مغادرة المكونات أو الصفحات يتسبب في تضخم استهلاك الذاكرة العشوائية بمتصفح الزائر. احرص دائماً على إزالة مستمعي الأحداث غير الضرورية وإدارة الذاكرة بنظافة.</p>
+
+    <h2>خاتمة</h2>
+    <p>تحسين أداء JavaScript ليس بالأمر المعقد، لكنه يتطلب وعياً بهندسة الكود وطريقة تفاعل المتصفح معه. تطبيق هذه القواعد البسيطة سيضمن لك موقعاً خارق السرعة، نظيفاً، ويرضي طموحات عملائك وزوارك.</p>
 
     <a href="../index.html#blog" class="back-btn">← العودة للمدونة والمقالات</a>
   </div>
