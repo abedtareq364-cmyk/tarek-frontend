@@ -42,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// API جلب الرسائل للوحة التحكم
+// API جلب الرسائل لوحة التحكم
 app.get('/api/messages', async (req, res) => {
   try {
     const database = await connectDB();
@@ -56,12 +56,7 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`🌐 السيرفر يعمل محلياً على:https://tarek-portofolio-backend.onrender.com`);
-  });
-}
-
+// API حفظ التعليق الجديد
 app.post('/api/comments', async (req, res) => {
   const { articleId, name, rating, text } = req.body;
 
@@ -90,7 +85,22 @@ app.post('/api/comments', async (req, res) => {
   }
 });
 
-module.exports = app; // API لجلب عدد الإعجابات للمقال
+// API جلب التعليقات للمقال (تم إضافتها لحل المشكلة)
+app.get('/api/comments', async (req, res) => {
+  try {
+    const database = await connectDB();
+    const collection = database.collection('comments');
+    const articleId = req.query.article || 'clean-code';
+    const comments = await collection.find({ articleId }).sort({ created_at: -1 }).toArray();
+    
+    res.status(200).json({ success: true, count: comments.length, comments });
+  } catch (err) {
+    console.error('❌ خطأ في جلب التعليقات:', err);
+    res.status(500).json({ success: false, error: 'تعذر جلب التعليقات.' });
+  }
+});
+
+// API لجلب عدد الإعجابات للمقال
 app.get('/api/likes', async (req, res) => {
   try {
     const database = await connectDB();
@@ -98,7 +108,7 @@ app.get('/api/likes', async (req, res) => {
     const articleId = req.query.article || 'clean-code';
     
     let likeDoc = await collection.findOne({ articleId });
-    const count = likeDoc ? likeDoc.count : 18; // لو مش موجود يبدأ من 18 افتراضياً
+    const count = likeDoc ? likeDoc.count : 18; 
     res.status(200).json({ success: true, count });
   } catch (err) {
     res.status(500).json({ success: false, error: 'تعذر جلب الإعجابات' });
@@ -110,7 +120,7 @@ app.post('/api/likes', async (req, res) => {
   try {
     const database = await connectDB();
     const collection = database.collection('likes');
-    const { articleId, action } = req.body; // action: 'like' أو 'unlike'
+    const { articleId, action } = req.body; 
     const targetArticle = articleId || 'clean-code';
     const increment = action === 'unlike' ? -1 : 1;
 
@@ -134,3 +144,12 @@ app.post('/api/likes', async (req, res) => {
     res.status(500).json({ success: false, error: 'تعذر تحديث الإعجاب' });
   }
 });
+
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🌐 السيرفر يعمل محلياً على المنفذ: ${PORT}`);
+  });
+}
+
+// وضعنا export في النهاية تماماً لضمان عمل كل المسارات على السحابة
+module.exports = app;
