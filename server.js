@@ -144,12 +144,12 @@ app.post('/api/likes', async (req, res) => {
     res.status(500).json({ success: false, error: 'تعذر تحديث الإعجاب' });
   }
 });
-
-if (process.env.NODE_ENV !== 'production') {
+{
+  // تشغيل السيرفر بشكل دائم ليتوافق مع استضافة Render وجميع المنصات
   app.listen(PORT, () => {
-    console.log(`🌐 السيرفر يعمل محلياً على المنفذ: ${PORT}`);
+    console.log(`🌐 السيرفر يعمل بانتظام على المنفذ: ${PORT}`);
   });
 }
 
-// وضعنا export في النهاية تماماً لضمان عمل كل المسارات على السحابة
+// تصدير التطبيق احتياطياً
 module.exports = app;
