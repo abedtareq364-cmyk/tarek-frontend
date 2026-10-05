@@ -42,7 +42,7 @@ app.post('/api/contact', async (req, res) => {
   }
 });
 
-// API جلب الرسائل لوحة التحكم
+// API جلب الرسائل للوحة التحكم
 app.get('/api/messages', async (req, res) => {
   try {
     const database = await connectDB();
@@ -56,14 +56,17 @@ app.get('/api/messages', async (req, res) => {
   }
 });
 
-// API حفظ التعليق الجديد
+// ==========================================
+// 🚀 مسارات التعليقات والتقييمات للمقالات
+// ==========================================
+
 app.post('/api/comments', async (req, res) => {
   const { articleId, name, rating, text } = req.body;
 
   try {
     const database = await connectDB();
     const collection = database.collection('comments');
-
+    
     const newComment = {
       articleId: articleId || 'clean-code',
       name: (name && name.trim()) ? name.trim() : '',
@@ -85,22 +88,25 @@ app.post('/api/comments', async (req, res) => {
   }
 });
 
-// API جلب التعليقات للمقال (تم إضافتها لحل المشكلة)
 app.get('/api/comments', async (req, res) => {
   try {
     const database = await connectDB();
     const collection = database.collection('comments');
     const articleId = req.query.article || 'clean-code';
-    const comments = await collection.find({ articleId }).sort({ created_at: -1 }).toArray();
     
-    res.status(200).json({ success: true, count: comments.length, comments });
+    const results = await collection.find({ articleId }).sort({ created_at: -1 }).toArray();
+    
+    res.status(200).json(results);
   } catch (err) {
     console.error('❌ خطأ في جلب التعليقات:', err);
     res.status(500).json({ success: false, error: 'تعذر جلب التعليقات.' });
   }
 });
 
-// API لجلب عدد الإعجابات للمقال
+// ==========================================
+// ❤️ مسارات الإعجابات (Likes) للمقالات
+// ==========================================
+
 app.get('/api/likes', async (req, res) => {
   try {
     const database = await connectDB();
@@ -108,19 +114,19 @@ app.get('/api/likes', async (req, res) => {
     const articleId = req.query.article || 'clean-code';
     
     let likeDoc = await collection.findOne({ articleId });
-    const count = likeDoc ? likeDoc.count : 18; 
+    const count = likeDoc ? likeDoc.count : 18;
     res.status(200).json({ success: true, count });
   } catch (err) {
+    console.error('❌ خطأ في جلب الإعجابات:', err);
     res.status(500).json({ success: false, error: 'تعذر جلب الإعجابات' });
   }
 });
 
-// API لتسجيل أو إلغاء الإعجاب وتحديثه في قاعدة البيانات
 app.post('/api/likes', async (req, res) => {
   try {
     const database = await connectDB();
     const collection = database.collection('likes');
-    const { articleId, action } = req.body; 
+    const { articleId, action } = req.body;
     const targetArticle = articleId || 'clean-code';
     const increment = action === 'unlike' ? -1 : 1;
 
@@ -141,15 +147,14 @@ app.post('/api/likes', async (req, res) => {
 
     res.status(200).json({ success: true, count: newCount });
   } catch (err) {
+    console.error('❌ خطأ في تحديث الإعجاب:', err);
     res.status(500).json({ success: false, error: 'تعذر تحديث الإعجاب' });
   }
 });
-{
-  // تشغيل السيرفر بشكل دائم ليتوافق مع استضافة Render وجميع المنصات
-  app.listen(PORT, () => {
-    console.log(`🌐 السيرفر يعمل بانتظام على المنفذ: ${PORT}`);
-  });
-}
 
-// تصدير التطبيق احتياطياً
+// تشغيل السيرفر بشكل دائم ليعمل بكفاءة تامة على Render ومحلياً
+app.listen(PORT, () => {
+  console.log(`🌐 السيرفر يعمل بكفاءة على المنفذ: ${PORT}`);
+});
+
 module.exports = app;
