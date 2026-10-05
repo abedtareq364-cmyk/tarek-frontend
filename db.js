@@ -57,7 +57,7 @@ app.get('/api/messages', async (req, res) => {
 });
 
 // ==========================================
-// 🚀 مسارات التعليقات والتقييمات للمقالات (بدون قيود أو شروط)
+// 🚀 مسارات التعليقات والتقييمات للمقالات
 // ==========================================
 
 app.post('/api/comments', async (req, res) => {
@@ -152,10 +152,9 @@ app.post('/api/likes', async (req, res) => {
   }
 });
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`🌐 السيرفر يعمل محلياً على المنفذ: ${PORT}`);
-  });
-}
+// تشغيل السيرفر بشكل دائم ليعمل بكفاءة تامة على Render ومحلياً
+app.listen(PORT, () => {
+  console.log(`🌐 السيرفر يعمل بكفاءة على المنفذ: ${PORT}`);
+});
 
 module.exports = app;
