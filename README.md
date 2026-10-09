@@ -6,7 +6,7 @@
 ## 🛠 التقنيات المستخدمة (Tech Stack)
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Backend:** Node.js, Express.js
-* **Deployment:** Vercel (Frontend) & Render (Backend)
+* **Deployment:**netlify (Frontend) & Render (Backend)
 
 ## 📌 مميزات المشروع
 * واجهة مستعرضة لعرض المشاريع والمهارات.
