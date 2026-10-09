@@ -36,7 +36,7 @@ async function connectDB() {
         console.log('✅ تم الاتصال بقاعدة بيانات MongoDB بنجاح تام 🚀');
         return dbInstance;
     } catch (error) {
-        console.error('❌ تفاصيل خطأ الاتصال بـ MongoDB بالمللي:', error.message);
+       console.error('❌ خطأ حقيقي في اتصال MongoDB:', error.message);
         // نطبع الـ error كاملاً عشان نعرف السبب الدقيق لو فيه حاجة مستخبية
         console.error(error);
         throw error;
