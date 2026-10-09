@@ -1,0 +1,47 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "site_content"
+    label: "التحكم الكامل في الموقع"
+    files:
+      - label: "الصفحة الرئيسية"
+        name: "hero"
+        file: "data/hero.json"
+        fields:
+          - {label: "الاسم - طارق عابد خورشيد", name: "name", widget: "string"}
+          - {label: "الوظيفة - مقاول تشطيبات", name: "job", widget: "string"}
+          - {label: "البريد الإلكتروني", name: "email", widget: "string"}
+          - {label: "صورتك", name: "photo", widget: "image"}
+          - {label: "نبذة عنك", name: "about", widget: "text"}
+
+      - label: "الخدمات اللي بتقدمها"
+        name: "services"
+        file: "data/services.json"
+        fields:
+          - label: "قائمة الخدمات"
+            name: "services"
+            widget: "list"
+            fields:
+              - {label: "اسم الخدمة - مثل: دهانات، سيراميك، جبس بورد", name: "title", widget: "string"}
+              - {label: "وصف الخدمة", name: "desc", widget: "text"}
+              - {label: "سعر يبدأ من", name: "price", widget: "string"}
+              - {label: "صورة الخدمة", name: "img", widget: "image"}
+
+      - label: "أعمال العملاء - تحديث لحظي"
+        name: "clients"
+        file: "data/clients.json"
+        fields:
+          - label: "المشاريع"
+            name: "projects"
+            widget: "list"
+            fields:
+              - {label: "اسم العميل", name: "client_name", widget: "string"}
+              - {label: "نوع الشغل", name: "type", widget: "string"}
+              - {label: "الحالة", name: "status", widget: "select", options: ["قيد التنفيذ", "تم التسليم", "في الانتظار"]}
+              - {label: "العنوان - فرنسا", name: "location", widget: "string"}
+              - {label: "صور قبل وبعد", name: "images", widget: "image"}

@@ -1,34 +1,46 @@
-const { MongoClient } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb');
 require('dotenv').config();
 
 const uri = process.env.MONGO_URI;
 
 if (!uri) {
-  console.error('❌ خطأ: متغير MONGO_URI غير متوفر في ملف البيئة!');
+    console.error('❌ خطأ قاتل: متغير MONGO_URI غير موجود في البيئة في Render!');
 }
 
-let client = null;
-let database = null;
+// إنشاء عميل مونجو مع خيارات الأمان والاتصال الحديثة لـ Atlas
+const client = new MongoClient(uri, {
+    serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+    },
+    connectTimeoutMS: 10000, // مهلة 10 ثواني عشان السيرفر مايعلقش
+    socketTimeoutMS: 45000,
+});
+
+let dbInstance = null;
 
 async function connectDB() {
-  if (database) {
-    return database;
-  }
-
-  try {
-    if (!client) {
-      client = new MongoClient(uri);
-      await client.connect();
+    if (dbInstance) {
+        return dbInstance;
     }
     
-    // اسم قاعدة البيانات (تأكد إنه مطابق للاسم اللي تحبه أو سيبه tarek_db)
-    database = client.db('tarek_db');
-    console.log('✅ تم الاتصال بقاعدة بيانات MongoDB بنجاح تام 🚀');
-    return database;
-  } catch (err) {
-    console.error('❌ خطأ فادح في الاتصال بقاعدة البيانات:', err);
-    throw err;
-  }
+    try {
+        console.log('🔄 جاري الاتصال بقاعدة بيانات MongoDB Atlas...');
+        await client.connect();
+        
+        // اختبار الاتصال الفعلي بقاعدة البيانات
+        await client.db("admin").command({ ping: 1 });
+        
+        dbInstance = client.db('tarek_db');
+        console.log('✅ تم الاتصال بقاعدة بيانات MongoDB بنجاح تام 🚀');
+        return dbInstance;
+    } catch (error) {
+        console.error('❌ تفاصيل خطأ الاتصال بـ MongoDB بالمللي:', error.message);
+        // نطبع الـ error كاملاً عشان نعرف السبب الدقيق لو فيه حاجة مستخبية
+        console.error(error);
+        throw error;
+    }
 }
 
 module.exports = connectDB;
