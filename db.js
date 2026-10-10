@@ -1,4 +1,4 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+const { MongoClient, ServerApiVersion } = require('mongodb'); require('dotenv').config();
 require('dotenv').config();
 
 const uri = process.env.MONGO_URI;
